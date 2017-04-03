@@ -7,7 +7,6 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :zipcode_string
       t.string :city
       t.string :country
-      t.string :country
       t.date :date
       t.float :duration
       t.references :profile, foreign_key: true
