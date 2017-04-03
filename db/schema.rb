@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403150357) do
+ActiveRecord::Schema.define(version: 20170403154520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id", using: :btree
+    t.index ["profile_id"], name: "index_attendances_on_profile_id", using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "description"
+    t.string   "street_name"
+    t.string   "street_number"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "country"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "profile_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["profile_id"], name: "index_events_on_profile_id", using: :btree
+  end
 
   create_table "kids", force: :cascade do |t|
     t.string   "gender"
@@ -60,6 +84,9 @@ ActiveRecord::Schema.define(version: 20170403150357) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attendances", "events"
+  add_foreign_key "attendances", "profiles"
+  add_foreign_key "events", "profiles"
   add_foreign_key "kids", "profiles"
   add_foreign_key "profiles", "users"
 end
