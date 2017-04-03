@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170403151121) do
     t.text     "description"
     t.string   "street_name"
     t.string   "street_number"
-    t.string   "zipcode_string"
+    t.string   "zipcode"
     t.string   "city"
     t.string   "country"
     t.date     "date"
