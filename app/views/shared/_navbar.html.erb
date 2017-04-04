@@ -16,18 +16,24 @@
             <i class="material-icons">person_outline</i>
           <% end %>
         </li>
-        <li><%= link_to t(".sign_out", default: "LogOut"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn yellow darken-4" %></li>
+        <li><%= link_to t(".sign_out", default: "LogOut"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn light-blue darken-3 hoverable" %></li>
       <% else %>
         <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %></li>
-        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4" %><i class="material-icons right">person_outline</i>
+        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4 hoverable" %><i class="material-icons right">person_outline</i>
       <% end %>
     </ul>
     <!-- start of colapse menu -->
     <ul class="side-nav" id="mobile-demo">
+    <% if user_signed_in? %>
+      <%= link_to root_path do %>
+        <p id="mobile-menu-text">Log-out</p>
+      <% end %>
+    <% else %>
       <li><a href="sass.html">Sass</a></li>
       <li><a href="badges.html">Components</a></li>
       <li><a href="collapsible.html">Javascript</a></li>
       <li><a href="mobile.html">Mobile</a></li>
+    <% end %>
     </ul>
   </div>
 </nav>
