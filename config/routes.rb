@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  resources :profiles, only: [:show, :update, :destroy ] do 
+  resources :profiles, only: [:show, :edit, :update, :destroy ] do
     resources :kids, only: [:create, :update, :destroy]
     resources :events, only: [:new, :edit, :create, :update, :destroy]
   end
