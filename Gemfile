@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 
+gem 'localtower'
+
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -27,7 +29,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-  gem 'localtower'
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
