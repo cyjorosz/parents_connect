@@ -23,7 +23,8 @@ class EventsController < ApplicationController
   if @event.save
       redirect_to event_path(@event)
     else
-      render "events/show"
+      render :new 
+#     to be confirmed
     end
   end
 
