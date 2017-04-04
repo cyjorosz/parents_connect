@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-before_action :find_profile
+  before_action :find_profile
 
   def show
   end
@@ -21,7 +21,7 @@ before_action :find_profile
   private
 
   def find_profile
-    @profile = current_user
+    @profile = Profile.find_by_user_id(current_user.id)
   end
 
   def profile_params
