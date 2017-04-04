@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 col m6 offset-m3">
+      <%= simple_form_for @profile do |f| %>
+      <div class="form-inputs">
+        <div class="input-field">
+          <%= f.input :first_name %>
+        </div>
+        <div class="input-field">
+        <%= f.input :last_name %>
+        </div>
+        <div class="input-field">
+        <%= f.input :date_of_birth %>
+        </div>
+        <div class="input-field">
+        <%= f.input :street_name %>
+        </div>
+        <div class="input-field">
+        <%= f.input :street_number %>
+        </div>
+        <div class="input-field">
+        <%= f.input :zipcode %>
+        </div>
+        <div class="input-field">
+        <%= f.input :city %>
+        </div>
+        <div class="input-field">
+        <%= f.input :country %>
+        </div>
+        <div class="input-field">
+        <%= f.input :gender %>
+        </div>
+        <div class="input-field">
+        <%= f.input :pregnant %>
+        </div>
+        <div class="input-field">
+        <%= f.input :due_date %>
+        </div>
+        <div class="input-field">
+        <%= f.input :bio, as: :text %>
+        </div>
+        <div class="input-field">
+        <%= f.input :phone_number %>
+        </div>
+        <div class="input-field">
+        <%= f.input :photo %>
+        </div>
+        <div class="input-field">
+        <%= f.input :photo_cache, as: :hidden %>
+        </div>
+      </div>
+      <div class="form-actions">
+      <%= f.submit, "Submit", class: "waves-effect waves-light btn yellow darken-4" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
