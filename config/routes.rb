@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { registrations: "registrations"}
   root to: 'pages#home'
 
 
-  resources :profiles, only: [:show, :update, :destroy ] do 
+  resources :profiles do 
     resources :kids, only: [:create, :update, :destroy]
     resources :events, only: [:new, :edit, :create, :update, :destroy]
   end
