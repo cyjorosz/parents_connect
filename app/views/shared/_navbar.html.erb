@@ -8,11 +8,9 @@
       <% if user_signed_in? %>
         <li><%= link_to t(".sign_out", default: "LogOut"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn yellow darken-4" %></li>
       <% else %>
-        <li><a href="collapsible.html">Sign-up</a></li>
+        <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %></li>
         <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4" %><i class="material-icons right">person_outline</i>
       <% end %>
-
-
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="sass.html">Sass</a></li>
