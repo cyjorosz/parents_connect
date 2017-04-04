@@ -12,11 +12,6 @@
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
   <%= yield %>
-  <%= javascript_include_tag 'application' %>
-  <script>
-    $( document ).ready(function(){
-      $(".button-collapse").sideNav();
-    });
-  </script>
+<%= javascript_include_tag 'application' %>
 </body>
 </html>
