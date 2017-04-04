@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :update, :destroy ] do 
     resources :kids, only: [:create, :update, :destroy]
-    resources :events
+    resources :events, only: [:new, :edit, :create, :update, :destroy]
   end
 
   resources :events, only: [:index, :show]
