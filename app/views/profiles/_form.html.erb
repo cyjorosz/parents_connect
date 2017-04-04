@@ -1,21 +1,23 @@
+<div class="container">
 <div class="row">
-<%= simple_form_for @profile, defaults: { input_html: { class: 'col s12' } } do |f| %>
+<%= simple_form_for @profile do |f| %>
 <div class="row">
-<div class="input-field col s6">
+<div class="col s6">
 <%= f.input :first_name %>
 </div>
-<div class="input-field col s6">
+<div class="col s6">
 <%= f.input :last_name %>
 </div>
 </div>
 <div class="row">
-<div class="input-field col s6">
-<%= f.input :gender, label: '', include_blank: 'Select your gender', collection: ["female", "male", "prefer not to say"] %>
+<div class="col s6">
+<%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
 </div>
-<div class="input-field col s6">
-<%= f.input :date_of_birth, wrapper_html: { class: 'datepicker' } %>
+<div class="col s6">
+<%= f.input :date_of_birth, as: :date %>
 </div>
 </div>
+
 <%= f.input :street_name %>
 
 <%= f.input :street_number %>
@@ -32,7 +34,7 @@
 
 <%= f.input :due_date %>
 
-<%= f.input :bio, as: :text, class: "materialize-textarea" %>
+<%= f.input :bio %>
 
 <%= f.input :photo %>
 
@@ -42,4 +44,5 @@
 <%= f.button :submit, "Submit", class: "waves-effect waves-light btn yellow darken-4" %>
 
 <% end %>
+</div>
 </div>
