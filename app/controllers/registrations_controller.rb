@@ -2,8 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
-      profile = Profile.create(user_id: resource.id)
-      # address = Address.create(user_id: user.id)
+      Profile.create(user_id: resource.id)
     end
   end
 
