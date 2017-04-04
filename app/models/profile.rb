@@ -1,4 +1,5 @@
 class Profile < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :user, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :kids, dependent: :destroy
