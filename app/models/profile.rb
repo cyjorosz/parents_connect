@@ -13,7 +13,7 @@ class Profile < ApplicationRecord
   validates :zipcode, presence: true, on: :update 
   validates :city, presence: true, on: :update 
   validates :country, presence: true, on: :update 
-  validates :gender, presence: true, inclusion: {in: ["female", "male", "prefer not to say"], allow_nil: false}, , on: :update 
+  validates :gender, presence: true, inclusion: {in: ["female", "male", "prefer not to say"], allow_nil: false}, on: :update 
   validates :pregnant, presence: true, on: :update
 
 end
