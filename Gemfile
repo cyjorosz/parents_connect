@@ -20,6 +20,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 
 gem 'localtower'
+gem 'country_select'
 
 
 group :development, :test do
