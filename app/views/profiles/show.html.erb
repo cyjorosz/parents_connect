@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col s12 m4 l3">
+    <div id="profile-page-header" class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag 'profile_background.jpg', class: "activator", alt: "profile_background" %>
+      </div>
+      <figure>
+          <%= cl_image_tag @profile.photo, class: "logo-large z-depth-2 responsive-img activator", alt: "profile image" %>
+      </figure>
+      <div class="card-content">
+
+        <a class="btn-floating activator waves-effect waves-light darken-2 right">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+
+        <h4 class="card-title grey-text text-darken-4"><%= @profile.first_name %> <%= @profile.last_name %></h4>
+        <p class="medium-small grey-text"><%= @profile.date_of_birth %></p>
+        <h4 class="card-title grey-text text-darken-4">My address</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.street_name %> <%= @profile.street_number %>
+        </p>
+        <p class="medium-small grey-text">
+          <%= @profile.zipcode %> <%= @profile.city %> <%= @profile.country %>
+        </p>
+        <br>
+        <p class="medium-small grey-text"><%= image_tag 'baby-weight.png', class: "logo-medium z-depth-1 responsive-img activator", alt: "pregnancy icon" %><%= @profile.due_date %></p>
+        <br>
+        <h4 class="card-title grey-text text-darken-4">Bio</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.bio %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m8 l9 card-panel">
+  </div>
+</div>

@@ -1,48 +1,19 @@
 <div class="container">
-<div class="row">
-<%= simple_form_for @profile do |f| %>
-<div class="row">
-<div class="col s6">
-<%= f.input :first_name %>
-</div>
-<div class="col s6">
-<%= f.input :last_name %>
-</div>
-</div>
-<div class="row">
-<div class="col s6">
-<%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
-</div>
-<div class="col s6">
-<%= f.input :date_of_birth, wrapper: :materialize_date %>
-</div>
-</div>
-
-<%= f.input :street_name %>
-
-<%= f.input :street_number %>
-
-<%= f.input :zipcode %>
-
-<%= f.input :city %>
-
-<%= f.input :country %>
-
-
-
-<%= f.input :pregnant %>
-
-<%= f.input :due_date %>
-
-<%= f.input :bio %>
-
-<%= f.input :photo %>
-
-<%= f.input :photo_cache, as: :hidden %>
-
-
-<%= f.button :submit, "Submit", class: "waves-effect waves-light btn yellow darken-4" %>
-
-<% end %>
-</div>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
+    <%= f.input :date_of_birth %>
+    <%= f.input :street_name %>
+    <%= f.input :street_number %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+    <%= f.input :pregnant %>
+    <%= f.input :due_date %>
+    <%= f.input :bio, as: :text %>
+    <%= f.input :photo, "profile picture" %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, "Submit", class: "waves-effect waves-light btn yellow darken-4" %>
+  <% end %>
 </div>
