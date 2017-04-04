@@ -26,7 +26,7 @@ before_action :find_profile
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :date_of_birth, :street_name,
-      :street_number, :zipcode, :city, :country, :gender, :pregnant, :due_date, :bio)
+      :street_number, :zipcode, :city, :country, :gender, :pregnant, :due_date, :bio, :photo, :photo_cache)
   end
 
 
