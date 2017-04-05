@@ -30,8 +30,6 @@ class EventsController < ApplicationController
     # @event = Event.new(event_params)
     # @event.profile = current_user.profile.first
 
-
-
   if @event.save
       redirect_to event_path(@event)
     else

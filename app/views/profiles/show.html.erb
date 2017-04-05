@@ -29,8 +29,8 @@
         </p>
         <br>
         <h4 class="card-title grey-text text-darken-4">Kids</h4>
-        <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light yellow darken-4 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
-          <i class="large material-icons">mode_edit</i>
+        <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
+          <i class="material-icons">person_add</i>
         <% end %>
         <ul>
         <% @profile.kids.each do |kid| %>
@@ -43,13 +43,13 @@
   <div class="col s12 m8 l9 card-panel">
   </div>
   <!-- Start of models -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
+  <div id="modal1" class="modal modal-padding">
+    <div class="modal-content center-align">
       <%= render 'kids/form' %>
     </div>
-    <div class="modal-footer">
+    <!-- <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
-    </div>
+    </div> -->
   </div>
   <!-- end of modal -->
 </div>
