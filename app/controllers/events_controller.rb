@@ -7,13 +7,14 @@ class EventsController < ApplicationController
   end
 
   def show
+    @events = Event.where.not(latitude: nil, longitude: nil)
     # set host and participants to make front-end easier
-    @host = @event.profile
-    @participants = @event.attendance.profiles #to be tested - not sure about syntax
+    # @host = @event.profile
+    # @attendance = @attendance.event.profile #to be tested - not sure about syntax
 
-    @hash = Gmaps4rails.build_markers(@event) do |event, marker|
-      marker.lat event.latitude
-      marker.lng event.longitude
+    @hash = Gmaps4rails.build_markers(@events) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
     end
   end
 
