@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  
+
   before_action :set_event, only: [:show, :update, :edit, :destroy]
 
   def index
@@ -10,6 +10,11 @@ class EventsController < ApplicationController
     # set host and participants to make front-end easier
     @host = @event.profile
     @participants = @event.attendance.profiles #to be tested - not sure about syntax
+
+    @hash = Gmaps4rails.build_markers(@event) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+    end
   end
 
   def new
@@ -23,7 +28,7 @@ class EventsController < ApplicationController
   if @event.save
       redirect_to event_path(@event)
     else
-      render :new 
+      render :new
 #     to be confirmed
     end
   end
