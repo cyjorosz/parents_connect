@@ -1,21 +1,26 @@
 <h1>Events</h1>
 <!-- <p>Find me in app/views/events/index.html.erb</p> -->
 
-
-
+<div class="container">
+  <div class="row">
+  <class class="col-xs-12 col-sm-8"></class>
     <div class="row">
     <%= @events.each do |event| %>
-      <div class="col s12 m5">
+      <div class="col-sm-6">
         <div class="card-panel grey-lighten">
+          <div class="card-category"> <%= event.description %>  </div>
           <span class="grey-text">
-            <%= event.description %>
             <%= event.start_date %>
             <%= event.end_date %>
             <%= event.full_address %>
           </span>
         </div>
+        </div>
       </div>
     <% end %>
-    </div>
+  </div>
+</div>
+
+
 
 
