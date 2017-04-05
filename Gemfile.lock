@@ -134,15 +134,13 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     has_scope (0.7.0)
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
-
-    geocoder (1.4.3)
-
-    gmaps4rails (2.1.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.1)
@@ -293,7 +291,7 @@ GEM
     tilt (2.0.7)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.12)
+    uglifier (3.1.13)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -319,9 +317,9 @@ DEPENDENCIES
   country_select
   devise
   figaro
-  inherited_resources!
   geocoder
   gmaps4rails
+  inherited_resources!
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
@@ -345,4 +343,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.6
+   1.14.4
