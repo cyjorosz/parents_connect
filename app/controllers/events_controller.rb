@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  
+
   before_action :set_event, only: [:show, :update, :edit, :destroy]
 
   def index
@@ -7,23 +7,33 @@ class EventsController < ApplicationController
   end
 
   def show
+    @events = Event.where.not(latitude: nil, longitude: nil)
     # set host and participants to make front-end easier
-    @host = @event.profile
-    @participants = @event.attendance.profiles #to be tested - not sure about syntax
+    # @host = @event.profile
+    # @attendance = @attendance.event.profile #to be tested - not sure about syntax
+
+    @hash = Gmaps4rails.build_markers(@events) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
+    end
   end
 
   def new
+    @profile = Profile.find(params[:profile_id])
     @event = Event.new
+    # @host = current_user.profiles.first
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.profile = current_user.profile
+    @profile = Profile.find(params[:profile_id])
+    @event = @profile.events.build(event_params)
+    # @event = Event.new(event_params)
+    # @event.profile = current_user.profile.first
 
   if @event.save
       redirect_to event_path(@event)
     else
-      render :new 
+      render :new
 #     to be confirmed
     end
   end

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170405123621) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(version: 20170405123621) do
     t.integer  "profile_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["profile_id"], name: "index_events_on_profile_id", using: :btree
   end
 

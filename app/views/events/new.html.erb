@@ -1,2 +1,8 @@
-<h1>Events#new</h1>
+<h1>Create an event</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+
+<% if user_signed_in? %>
+    <%= render 'form' %>
+  <% else %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-success" %>
+<% end %>

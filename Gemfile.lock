@@ -29,6 +29,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.2)
       actionpack (= 5.0.2)
@@ -138,6 +139,10 @@ GEM
     has_scope (0.7.0)
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
+
+    geocoder (1.4.3)
+
+    gmaps4rails (2.1.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.1)
@@ -178,6 +183,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-form (1.0.8)
     materialize-sass (0.98.1)
       sass (~> 3.3)
     method_source (0.8.2)
@@ -225,6 +231,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.2)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -308,20 +315,25 @@ DEPENDENCIES
   binding_of_caller
   carrierwave (~> 0.11.2)
   cloudinary
+  coffee-rails
   country_select
   devise
   figaro
   inherited_resources!
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
   localtower
+  materialize-form
   materialize-sass
   pg
   pry-byebug
   pry-rails
   puma
   rails (= 5.0.2)
+  rails-assets-underscore!
   redis
   sass-rails
   simple_form
