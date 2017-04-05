@@ -1,47 +1,8 @@
-<h1>Events#new</h1>
+<h1>Create an event</h1>
 <p>Find me in app/views/events/new.html.erb</p>
 
 <% if user_signed_in? %>
-
-
-
-<%= simple_form_for @event do |f| %>
-<div class="row">
-    <div class="col s6">
-        <%= f.input :description %>
-    </div>
-
-</div>
-<div class="row">
-
-    <div class="col s6">
-        <%= f.input :start_date, as: :datetime %>
-    </div>
-</div>
-
-<div class="row">
-
-    <div class="col s6">
-        <%= f.input :end_date, as: :datetime %>
-    </div>
-</div>
-
-    <%= f.input :street_name %>
-
-    <%= f.input :street_number %>
-
-    <%= f.input :zipcode %>
-
-    <%= f.input :city %>
-
-    <%= f.input :country %>
-
-    <%= f.input_field :profile_id, as: :hidden,  value: @host.id %>
-
-    <%= f.button :submit, "Create Event", class: "waves-effect waves-light btn yellow darken-4" %>
-
-    <% end %>
-
-    <% else %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-success" %>
+    <%= render 'form' %>
+  <% else %>
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn btn-success" %>
 <% end %>
