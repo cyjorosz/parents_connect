@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :find_profile
 
   def show
+    @kid = Kid.new
   end
 
   def edit
