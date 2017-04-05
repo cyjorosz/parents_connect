@@ -11,10 +11,6 @@
         <%= link_to edit_profile_path(current_user), class: "btn-floating activator waves-effect waves-light yellow darken-4 right hoverable" do %>
             <i class="large material-icons">mode_edit</i>
         <% end %>
-<!--         <a class="btn-floating activator waves-effect waves-light yellow darken-4 right">
-          <i class="large material-icons">mode_edit</i>
-        </a> -->
-
         <h4 class="card-title grey-text text-darken-4"><%= @profile.first_name %> <%= @profile.last_name %></h4>
         <p class="medium-small grey-text"><%= @profile.date_of_birth %></p>
         <h4 class="card-title grey-text text-darken-4">My address</h4>
@@ -31,9 +27,29 @@
         <p class="medium-small grey-text">
           <%= @profile.bio %>
         </p>
+        <br>
+        <h4 class="card-title grey-text text-darken-4">Kids</h4>
+        <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light yellow darken-4 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
+          <i class="large material-icons">mode_edit</i>
+        <% end %>
+        <ul>
+        <% @profile.kids.each do |kid| %>
+          <li class="medium-small grey-text"><%= kid.gender.capitalize %> <%= kid.date_of_birth %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   </div>
   <div class="col s12 m8 l9 card-panel">
   </div>
+  <!-- Start of models -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <%= render 'kids/form' %>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+    </div>
+  </div>
+  <!-- end of modal -->
 </div>

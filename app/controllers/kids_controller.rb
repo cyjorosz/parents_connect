@@ -2,8 +2,14 @@ class KidsController < ApplicationController
 
   before_action :set_kid, only: [:update, :destroy]
 
+  def new
+    @profile = Profile.find(params[:profile_id])
+    @kid = Kid.new
+  end
+
   def create
-    @kid = Kid.new(kid_params)
+    @profile = Profile.find(params[:profile_id])
+    @kid = @profile.kids.build(kid_params)
     if @kid.save
       redirect_to profile_path(@profile)
     else
