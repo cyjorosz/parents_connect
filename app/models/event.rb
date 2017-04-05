@@ -13,7 +13,6 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :full_address_changed?
 
   def full_address
-    byebug
     "#{street_number} #{street_name}, #{zipcode}, #{city} #{country}"
   end
 
