@@ -19,6 +19,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @host = current_user.profiles.first
   end
 
   def create
