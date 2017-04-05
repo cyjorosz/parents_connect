@@ -19,14 +19,16 @@ class EventsController < ApplicationController
   end
 
   def new
+    @profile = Profile.find(params[:profile_id])
     @event = Event.new
-    @host = current_user.profiles.first
+    # @host = current_user.profiles.first
   end
 
   def create
     @profile = Profile.find(params[:profile_id])
     @event = @profile.events.build(event_params)
-    # @event.profile = current_user.profile
+    # @event = Event.new(event_params)
+    # @event.profile = current_user.profile.first
 
   if @event.save
       redirect_to event_path(@event)

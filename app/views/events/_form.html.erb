@@ -22,8 +22,10 @@
     <%= f.input :zipcode %>
     <%= f.input :city %>
     <%= f.input :country %>
-    <%= f.input_field :profile_id, as: :hidden,  value: @host.id %>
+    <%#= f.input_field :profile_id, as: :hidden,  value: @host.id %>
     <%= f.button :submit, "Create Event", class: "waves-effect waves-light btn yellow darken-4" %>
 
     <% end %>
+
+
 
