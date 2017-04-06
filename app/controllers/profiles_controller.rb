@@ -1,8 +1,14 @@
 class ProfilesController < ApplicationController
   before_action :find_profile
 
+  def index
+    @profiles = Profile.all
+    @kids = @profile.kids
+  end
+
   def show
     @kid = Kid.new
+    @kids = @profile.kids
   end
 
   def edit

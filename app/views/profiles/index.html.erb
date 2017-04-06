@@ -1,0 +1,32 @@
+<h1>Profiles</h1>
+
+<div class="flex-container">
+  <% @profiles.each do |profile| %>
+  <div class="card medium hoverable">
+    <div class="card-image">
+      <img class="activator" src="<%= @profile.photo  %> ">
+    </div>
+
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">
+      <%= profile.first_name%> <%= profile.last_name %>
+      </span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"> <%= profile.first_name %> <%= profile.last_name %> <i class="material-icons right">close</i></span>
+        <!-- add icon for number of kids and ages -->
+        <!-- if pregnant add another icon and due date month -->
+        <p> <%= profile.bio %> </p>
+        <% @kids.each do |kid| %>
+          <%= kid.age(kid.date_of_birth) %>
+        <% end %>
+        <!-- for each profile show icon for each child -->
+        <!-- for each child show icon for gender -->
+
+        <p><a class="waves-effect waves-light btn" href=" <%= profile_path(profile) %>">Connect</a></p>
+        <!-- Add neighbourhood  -->
+      </div>
+    </div>
+    <% end %>
+  </div>
+
