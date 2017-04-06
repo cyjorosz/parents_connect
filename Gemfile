@@ -10,7 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
+gem 'acts-as-taggable-on', '~> 4.0'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
