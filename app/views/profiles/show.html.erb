@@ -1,14 +1,12 @@
 <div class="row">
-  <div class="col s12 m4 l3">
+  <div class="col s12 m4 l4">
 <%= render 'profiles/card' %>
   </div>
-  <div class="col s12 m8 l9">
-    <div id="events-card-header" class="card">
-      <h4 class="card-title white-text light-blue darken-4">Events</h4>
+  <div class="col s12 m8 l8">
+      <h4 class="title grey-text text-darken-4">EVENTS</h4>
       <%= link_to new_profile_event_path(current_user), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
         <i class="large material-icons">add</i>
       <% end %>
-    </div>
 <%= render 'profiles/table' %>
   </div>
   <div class="col s12 m8 l9">
