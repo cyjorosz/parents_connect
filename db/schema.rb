@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405123621) do
+ActiveRecord::Schema.define(version: 20170406084023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(version: 20170405123621) do
     t.string   "zipcode"
     t.string   "city"
     t.string   "country"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.integer  "profile_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.date     "start_date"
+    t.time     "start_time"
+    t.integer  "duration"
     t.index ["profile_id"], name: "index_events_on_profile_id", using: :btree
   end
 
