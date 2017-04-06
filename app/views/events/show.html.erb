@@ -1,9 +1,10 @@
-<h1>Events#show</h1>
+<% content_for :title, "#{@event.description}" %>
+
+<h1> <%= @event.description %> </h1>
 
 <!-- will format -->
 
 <div class="row">
-  <%= @event.description %>
   <%= @event.start_date %>
   <%= @event.start_time %>
   <%= @event.duration %>
