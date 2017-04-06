@@ -21,4 +21,11 @@ class Event < ApplicationRecord
     street_number_changed? || street_name_changed? || zipcode_changed? || city_changed? || country_changed?
   end
 
+  def profile_attending?(attendances, current_profile_id)
+    attendances.each do |attendance|
+      return true if attendance[:profile_id] == current_profile_id
+    end
+    return false
+  end
+
 end

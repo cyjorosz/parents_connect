@@ -12,9 +12,7 @@
 
   resources :events, only: [:index, :show]
 
-  ##
-  # wait for lecture 5/4/2017 for admin gem to change interests as admin
-  ##
+  resources :attendances, only: [ :create ]
 
   if Rails.env.development?
     mount Localtower::Engine, at: "localtower"

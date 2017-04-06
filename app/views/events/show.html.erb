@@ -5,7 +5,8 @@
 <div class="row">
   <%= @event.description %>
   <%= @event.start_date %>
-  <%= @event.end_date %>
+  <%= @event.start_time %>
+  <%= @event.duration %>
   <%= @event.street_name %>
   <%= @event.street_number %>
   <%= @event.city %>
@@ -13,6 +14,20 @@
   <%= @event.country %>
 
 </div>
+
+<div class="row">
+  <p>attendances are:</p>
+  <% @attendances.each do |attendance| %>
+  <%= attendance.profile.last_name %>
+  <% end %>
+</div>
+
+<% if @event.profile_attending?(@attendances, current_user.profile.id) %>
+  <p>you're already attending</p>
+<% else %>
+  <%= render 'events/attendancebutton' %>
+<% end %>
+
 
   <!-- Add host -->
   <!-- Add attendances  -->

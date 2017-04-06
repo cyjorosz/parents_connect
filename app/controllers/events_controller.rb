@@ -12,16 +12,23 @@ class EventsController < ApplicationController
     # @host = @event.profile
     # @attendance = @attendance.event.profile #to be tested - not sure about syntax
 
+    # create empty Attendance object to be filled 
+
     @hash = Gmaps4rails.build_markers(@events) do |address, marker|
       marker.lat address.latitude
       marker.lng address.longitude
     end
+
+    @attendances = @event.attendances
+
+    @attendance = Attendance.new
+
+
   end
 
   def new
     @profile = Profile.find(params[:profile_id])
     @event = Event.new
-    # @host = current_user.profiles.first
   end
 
   def create
