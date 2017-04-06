@@ -23,3 +23,14 @@ $('.chips').material_chip();
       minLength: 1
     }
   });
+  $('.chips').on('chip.add', function(e, chip){
+    // you have the added chip here
+  });
+
+  $('.chips').on('chip.delete', function(e, chip){
+    // you have the deleted chip here
+  });
+
+  $('.chips').on('chip.select', function(e, chip){
+    // you have the selected chip here
+  });

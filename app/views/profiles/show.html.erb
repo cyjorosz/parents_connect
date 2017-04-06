@@ -1,49 +1,6 @@
 <div class="row">
   <div class="col s12 m4 l3">
-    <div id="profile-page-header" class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-          <%= image_tag 'profile_background.jpg', class: "activator", alt: "profile_background" %>
-      </div>
-      <figure>
-          <%= cl_image_tag @profile.photo, class: "logo-large z-depth-2 responsive-img activator", alt: "profile image" %>
-      </figure>
-      <div class="card-content">
-
-            <i class="large material-icons">mode_edit</i>
-        <% end %>
-        <h4 class="card-title grey-text text-darken-4"><%= @profile.first_name %> <%= @profile.last_name %></h4>
-        <p class="medium-small grey-text"><%= @profile.date_of_birth %></p>
-        <h4 class="card-title grey-text text-darken-4">My address</h4>
-        <p class="medium-small grey-text">
-          <%= @profile.street_name %> <%= @profile.street_number %>
-        </p>
-        <p class="medium-small grey-text">
-          <%= @profile.zipcode %> <%= @profile.city %> <%= @profile.country %>
-        </p>
-        <br>
-        <p class="medium-small grey-text"><%= image_tag 'baby-weight.png', class: "logo-medium z-depth-1 responsive-img activator", alt: "pregnancy icon" %><%= @profile.due_date %></p>
-        <br>
-        <h4 class="card-title grey-text text-darken-4">Bio</h4>
-        <p class="medium-small grey-text">
-          <%= @profile.bio %>
-        </p>
-        <br>
-        <h4 class="card-title grey-text text-darken-4">Interests</h4>
-        <p class="medium-small grey-text">
-          <%= @profile.tag_list %>
-        </p>
-        <br>
-        <h4 class="card-title grey-text text-darken-4">Kids</h4>
-        <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
-          <i class="material-icons">person_add</i>
-        <% end %>
-        <ul>
-        <% @profile.kids.each do |kid| %>
-          <li class="medium-small grey-text"><%= kid.gender.capitalize %> <%= kid.date_of_birth %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
+<%= render 'profiles/card' %>
   </div>
   <div class="col s12 m8 l9">
     <div id="events-card-header" class="card">
@@ -52,43 +9,8 @@
         <i class="large material-icons">add</i>
       <% end %>
     </div>
-    <div class="card-content">
-      <table>
-        <thead>
-          <tr>
-              <th>Event description</th>
-              <th>Event date</th>
-              <th>Event location</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>....</td>
-            <td>....</td>
-            <td>....</td>
-          </tr>
-          <tr>
-            <td>....</td>
-            <td>....</td>
-            <td>....</td>
-          </tr>
-          <tr>
-            <td>....</td>
-            <td>....</td>
-            <td>....</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<%= render 'profiles/table' %>
   </div>
   <div class="col s12 m8 l9">
   </div>
-  <!-- Start of models -->
-  <div id="modal1" class="modal modal-padding">
-    <div class="modal-content center-align">
-      <%= render 'kids/form' %>
-    </div>
-  </div>
-  <!-- end of modal -->
 </div>

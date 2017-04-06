@@ -1,0 +1,48 @@
+    <div id="profile-page-header" class="card">
+
+
+      <div class="card-image waves-effect waves-block waves-light">
+          <%= cl_image_tag @profile.photo, class: "activator", alt: "profile_background" %>
+      </div>
+
+      <div class="card-content user-profile-card">
+        <%= link_to edit_profile_path(current_user), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable edit-btn-profile" do %>
+          <i class="large material-icons">mode_edit</i>
+        <% end %>
+
+        <p class="description-profile small grey-text text-lighten-2">NAME</p>
+
+        <h4 class="card-title grey-text text-darken-4"><%= @profile.first_name %> <%= @profile.last_name %></h4>
+        <p class="medium-small grey-text"><%= @profile.date_of_birth %></p>
+        <h4 class="card-title grey-text text-darken-4">My address</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.street_name %> <%= @profile.street_number %>
+        </p>
+        <p class="medium-small grey-text">
+          <%= @profile.zipcode %> <%= @profile.city %> <%= @profile.country %>
+        </p>
+        <br>
+        <p class="medium-small grey-text"><%= image_tag 'baby-weight.png', class: "logo-medium z-depth-1 responsive-img activator", alt: "pregnancy icon" %><%= @profile.due_date %></p>
+        <br>
+        <h4 class="card-title grey-text text-darken-4">Bio</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.bio %>
+        </p>
+        <br>
+        <h4 class="card-title grey-text text-darken-4">Interests</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.tag_list %>
+        </p>
+        <br>
+        <h4 class="card-title grey-text text-darken-4">Kids</h4>
+        <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
+          <i class="material-icons">person_add</i>
+        <% end %>
+        <ul>
+        <% @profile.kids.each do |kid| %>
+          <li class="medium-small grey-text"><%= kid.gender.capitalize %> <%= kid.date_of_birth %></li>
+        <% end %>
+        </ul>
+        <%= render 'kids/form' %>
+      </div>
+    </div>
