@@ -14,6 +14,16 @@ class AttendancesController < ApplicationController
 
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    # @events = Event.joins(:attendance)
+    # raise params
+    @attendance = @event.attendances.where(profile_id: current_user.profile.id)
+    # raise params
+    @attendance.destroy_all
+    redirect_to event_path(@event)
+  end
+
 private
 
 end
