@@ -21,8 +21,17 @@
 }
 
 .card {
-  width:400px;
   margin: 15px;
+}
 
 
+.user-profile-card {
+  position: relative;
+}
+
+.edit-btn-profile {
+  position: absolute;
+  top: -22px;
+  float: right;
+  right: 20px;
 }

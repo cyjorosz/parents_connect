@@ -1,10 +1,14 @@
-<div class="container">
-  <%= simple_form_for @profile do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
-    <%= f.input :date_of_birth %>
-    <%= f.input :tag_list, class: "chips chips-autocomplete" %>
+<h3>
+  Edit your personal information
+</h3>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
+  <%= f.input :date_of_birth %>
+      <!-- <div class="chips chips-autocomplete">
+    -->    <%= f.input :tag_list, placeholder: 'enter your interests' %>
+    <!--  </div> -->
     <%= f.input :street_name %>
     <%= f.input :street_number %>
     <%= f.input :zipcode %>
@@ -17,4 +21,3 @@
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, "Submit", class: "waves-effect waves-light btn yellow darken-4" %>
   <% end %>
-</div>
