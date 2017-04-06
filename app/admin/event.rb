@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
 
-  permit_params :description, :street_name, :street_number, :city, :zipcode, :country, :start_date, :end_date, :profile_id
+  permit_params :description, :street_name, :street_number, :city, :zipcode, :country, :start_date, :start_time, :duration, :profile_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

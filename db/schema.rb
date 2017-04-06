@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405123621) do
+ActiveRecord::Schema.define(version: 20170406101310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,29 +45,15 @@ ActiveRecord::Schema.define(version: 20170405123621) do
     t.string   "zipcode"
     t.string   "city"
     t.string   "country"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.integer  "profile_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.date     "start_date"
+    t.time     "start_time"
+    t.integer  "duration"
     t.index ["profile_id"], name: "index_events_on_profile_id", using: :btree
-  end
-
-  create_table "interest_links", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "interest_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["interest_id"], name: "index_interest_links_on_interest_id", using: :btree
-    t.index ["profile_id"], name: "index_interest_links_on_profile_id", using: :btree
-  end
-
-  create_table "interests", force: :cascade do |t|
-    t.string   "interest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "kids", force: :cascade do |t|
@@ -120,8 +106,6 @@ ActiveRecord::Schema.define(version: 20170405123621) do
   add_foreign_key "attendances", "events"
   add_foreign_key "attendances", "profiles"
   add_foreign_key "events", "profiles"
-  add_foreign_key "interest_links", "interests"
-  add_foreign_key "interest_links", "profiles"
   add_foreign_key "kids", "profiles"
   add_foreign_key "profiles", "users"
 end
