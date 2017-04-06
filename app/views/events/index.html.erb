@@ -1,26 +1,21 @@
 <h1>Events</h1>
-<!-- <p>Find me in app/views/events/index.html.erb</p> -->
 
-<div class="container">
-  <div class="row">
-  <class class="col-xs-12 col-sm-8"></class>
-    <div class="row">
-    <%= @events.each do |event| %>
-      <div class="col-sm-6">
-        <div class="card-panel grey-lighten">
-          <div class="card-category"> <%= event.description %>  </div>
-          <span class="grey-text">
-            <%= event.start_date %>
-            <%= event.end_date %>
-            <%= event.full_address %>
-          </span>
-        </div>
-        </div>
-      </div>
-    <% end %>
+<div class="flex-container">
+  <% @events.each do |event| %>
+  <div class="card medium hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://unsplash.it/200/300?random">
+    </div>
+
+    <div class="card-content">
+
+      <span class="card-title activator grey-text text-darken-4"> <%= event.description %>  <i class="material-icons right">more_vert</i></span>
+      <p><a href="<%= event_path(event)%>">Attend</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= event.start_date %><i class="material-icons right">close</i></span>
+      <p> <%= event.full_address %> </p>
+    </div>
   </div>
+  <% end %>
 </div>
-
-
-
-
