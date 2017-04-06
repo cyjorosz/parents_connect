@@ -16,4 +16,5 @@ class Profile < ApplicationRecord
   validates :pregnant, presence: true, on: :update
   mount_uploader :photo, PhotoUploader
   acts_as_taggable
+  acts_as_taggable_on :interests
 end

@@ -4,6 +4,7 @@
     <%= f.input :last_name %>
     <%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
     <%= f.input :date_of_birth %>
+    <%= f.input :tag_list, class: "chips chips-autocomplete" %>
     <%= f.input :street_name %>
     <%= f.input :street_number %>
     <%= f.input :zipcode %>

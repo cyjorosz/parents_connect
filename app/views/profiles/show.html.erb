@@ -28,6 +28,11 @@
           <%= @profile.bio %>
         </p>
         <br>
+        <h4 class="card-title grey-text text-darken-4">Interests</h4>
+        <p class="medium-small grey-text">
+          <%= @profile.tag_list %>
+        </p>
+        <br>
         <h4 class="card-title grey-text text-darken-4">Kids</h4>
         <%= link_to "#model1", class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable modal-trigger", 'data-target' => 'modal1' do %>
           <i class="material-icons">person_add</i>
@@ -43,6 +48,9 @@
   <div class="col s12 m8 l9">
     <div id="events-card-header" class="card">
       <h4 class="card-title white-text light-blue darken-4">Events</h4>
+      <%= link_to new_profile_event_path(current_user), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
+        <i class="large material-icons">add</i>
+      <% end %>
     </div>
     <div class="card-content">
       <table>
@@ -50,7 +58,7 @@
           <tr>
               <th>Event description</th>
               <th>Event date</th>
-              <th>Event place</th>
+              <th>Event location</th>
           </tr>
         </thead>
 
@@ -74,14 +82,13 @@
       </table>
     </div>
   </div>
+  <div class="col s12 m8 l9">
+  </div>
   <!-- Start of models -->
   <div id="modal1" class="modal modal-padding">
     <div class="modal-content center-align">
       <%= render 'kids/form' %>
     </div>
-    <!-- <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
-    </div> -->
   </div>
   <!-- end of modal -->
 </div>
