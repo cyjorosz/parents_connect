@@ -2,7 +2,8 @@
     <%= simple_form_for [@profile, @event] do |f| %>
         <%= f.input :description %>
         <%= f.input :start_date, as: :date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_time%>
+        <%= f.input :duration%>
         <%= f.input :street_name %>
         <%= f.input :street_number %>
         <%= f.input :zipcode %>
