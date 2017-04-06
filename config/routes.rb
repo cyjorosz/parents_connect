@@ -12,7 +12,7 @@
 
   resources :events, only: [:index, :show]
 
-  resources :attendances, only: [ :create ]
+  resources :attendances, only: [ :create, :destroy ]
 
   if Rails.env.development?
     mount Localtower::Engine, at: "localtower"

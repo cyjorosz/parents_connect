@@ -23,7 +23,7 @@
 </div>
 
 <% if @event.profile_attending?(@attendances, current_user.profile.id) %>
-  <p>you're already attending</p>
+   <%= link_to "Not attending?", attendance_path, class: "btn", method: :delete %>
 <% else %>
   <%= render 'events/attendancebutton' %>
 <% end %>

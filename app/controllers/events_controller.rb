@@ -20,10 +20,7 @@ class EventsController < ApplicationController
     end
 
     @attendances = @event.attendances
-
     @attendance = Attendance.new
-
-
   end
 
   def new
