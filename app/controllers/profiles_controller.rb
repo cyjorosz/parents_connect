@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
-    @kids = @profile.kids
+    @kids = @profiles.kids
   end
 
   def show
