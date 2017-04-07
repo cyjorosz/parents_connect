@@ -5,9 +5,9 @@
 <!-- will format -->
 
 <div class="row">
-  <%= @event.start_date %>
-  <%= @event.start_time %>
-  <%= @event.duration %>
+  <%= @event.start_date.try(:strftime, "%e %b %Y") %>
+  <p> When? <%= @event.start_time %></p>
+  <p> Duration <%= @event.duration %></p>
   <%= @event.street_name %>
   <%= @event.street_number %>
   <%= @event.city %>

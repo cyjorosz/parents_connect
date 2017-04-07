@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+ class EventsController < ApplicationController
 
   before_action :set_event, only: [:show, :update, :edit, :destroy]
 
@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     # @host = @event.profile
     # @attendance = @attendance.event.profile #to be tested - not sure about syntax
 
-    # create empty Attendance object to be filled 
+    # create empty Attendance object to be filled
 
     @hash = Gmaps4rails.build_markers(@events) do |address, marker|
       marker.lat address.latitude

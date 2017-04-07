@@ -14,7 +14,7 @@
         <h5 class="description-text text-darken-4"><%= @profile.first_name %> <%= @profile.last_name %></h5>
         <p class="description-profile grey-text text-lighten-2">BIRTHDATE</p>
 
-        <p class="text-darken-4 description-text"><%= @profile.date_of_birth %></p>
+        <p class="text-darken-4 description-text"><%= @profile.date_of_birth.try(:strftime, "%e %b %Y") %></p>
         <p class="description-profile grey-text text-lighten-2">MY ADDRESS</p>
         <p class="text-darken-4 description-text">
           <%= @profile.street_name %> <%= @profile.street_number %>
@@ -36,7 +36,7 @@
         <p class="description-profile grey-text text-lighten-2">KIDS</p>
         <ul>
           <% @profile.kids.each do |kid| %>
-          <li class="text-darken-4 description-text"><%= kid.gender.capitalize %> <%= kid.date_of_birth %></li>
+          <li class="text-darken-4 description-text"><%= kid.gender.capitalize %> <%= kid.age(kid.date_of_birth) %></li>
           <% end %>
         </ul>
         <%= render 'kids/form' %>
