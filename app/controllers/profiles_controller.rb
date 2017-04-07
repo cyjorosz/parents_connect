@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile
+  before_action :find_profile, excep: [:index]
 
   def index
     @profiles = Profile.all
