@@ -1,9 +1,9 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile, excep: [:index]
+  before_action :find_profile, except: [:index]
 
   def index
     @profiles = Profile.all
-    @kids = @profiles.kids
+    # @kids = Kid.all
   end
 
   def show
