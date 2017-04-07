@@ -6,7 +6,7 @@
   <% @profiles.each do |profile| %>
   <div class="card medium hoverable">
     <div class="card-image">
-      <img class="activator" src="<%= profile.photo  %> ">
+      <img class="activator" src="<%= profile.photo.url(:standard) %> ">
     </div>
 
     <div class="card-content">
