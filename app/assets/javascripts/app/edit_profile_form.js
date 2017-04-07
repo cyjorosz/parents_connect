@@ -1,21 +1,21 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  function initAutocomplite () {
-    $('.chips-autocomplete').material_chip({
-      data: userTags,
-      autocompleteOptions: {
-        data: [{
-          'Apple': null,
-          'Microsoft': null,
-          'Google': null
-        }],
-        limit: Infinity,
-        minLength: 1
-      }
-    });
-  }
+//   function initAutocomplite () {
+//     $('.chips-autocomplete').material_chip({
+//       data: userTags,
+//       autocompleteOptions: {
+//         data: [{
+//           'Apple': null,
+//           'Microsoft': null,
+//           'Google': null
+//         }],
+//         limit: Infinity,
+//         minLength: 1
+//       }
+//     });
+//   }
 
-  initAutocomplite();
+//   initAutocomplite();
 
 //    var chips = $('#profile_tag_list').val();
 //    console.log(chips);
@@ -45,6 +45,4 @@ $(document).ready(function() {
 //   //
 //   // $('#edit_profile_1').submit()
 // });
-
-
-});
+// });
