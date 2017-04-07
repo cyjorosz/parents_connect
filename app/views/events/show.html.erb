@@ -23,11 +23,18 @@
   <% end %>
 </div>
 
-<% if @event.profile_attending?(@attendances, current_user.profile.id) %>
+
+
+<% if @event.profile == current_user.profile %>
+  <h3>you're the host!</h3>
+    <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
+<% elsif @event.profile_attending?(@attendances, current_user.profile.id) %>
    <%= link_to "Not attending?", attendance_path, class: "btn", method: :delete %>
 <% else %>
   <%= render 'events/attendancebutton' %>
 <% end %>
+<br>
+<br>
 
 
   <!-- Add host -->

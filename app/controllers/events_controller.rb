@@ -61,7 +61,7 @@
 
   def destroy
     @event.destroy
-    redirect_to events_path
+    redirect_to profile_path(current_user.profile)
   end
 
 
