@@ -29,8 +29,17 @@ class EventsController < ApplicationController
   end
 
   def create
+    # raise
     @profile = Profile.find(params[:profile_id])
-    @event = @profile.events.build(event_params)
+
+    event_time_hour = event_params[:start_time].first(2)
+    event_time_minute = event_params[:start_time].last(2)
+    event_time = Time.new.change({ hour: event_time_hour, min: event_time_minute, sec: 0 })
+
+    edited_event_params = event_params
+
+    edited_event_params[:start_time] = event_time
+    @event = @profile.events.build(edited_event_params)
     # @event = Event.new(event_params)
     # @event.profile = current_user.profile.first
 
@@ -63,7 +72,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:description, :street_name, :street_number, :city, :zipcode, :country, :start_date, :end_date)
+    params.require(:event).permit(:description, :street_name, :street_number, :city, :zipcode, :country, :start_date, :start_time, :duration)
   end
 
 end
