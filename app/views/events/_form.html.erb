@@ -2,35 +2,40 @@
     <%= simple_form_for [@profile, @event] do |f| %>
         <%= f.input :description %>
         <%= f.input :start_date, as: :date %>
-        <%= f.input :start_time%>
+        <%= f.input :start_time, as: :hidden%>
 
 
-        <div class="materialPicker timepicker">
-            <div class="timeContainer first">
-                <div class="waves-effect waves-light btn pickerButton btnUp">
-                    <i class="material-icons">add</i>
-                </div>
-                <div class="timenumber" id="time-hour">
-                    15
-                </div>
-                <div class="waves-effect waves-light btn pickerButton btnDown">
-                    <i class="material-icons">add</i>
+            <div class="materialPicker timepicker container">
+                <div class="row">
+                    <div class="col s 6">
+                        <div class="timeContainer first">
+                            <div class="waves-effect waves-light btn pickerButton btnUpHour">
+                                <i class="material-icons">add</i>
+                            </div>
+                            <div class="timenumber center" id="time-hour">
+                                15
+                            </div>
+                            <div class="waves-effect waves-light btn pickerButton btnDownHour">
+                                <i class="material-icons">remove</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s 6">
+                        <div class="timeContainer second">
+                            <div class="waves-effect waves-light btn pickerButton btnUpMinute">
+                                <i class="material-icons">add</i>
+                            </div>
+                            <div class="timenumber center" id="time-minute">
+                                00
+                            </div>
+                            <div class="waves-effect waves-light btn pickerButton btnDownMinute">
+                                <i class="material-icons">remove</i>
+                            </div>
+                        </div>
+                  </div>
                 </div>
             </div>
-            
-            
-            <div class="timeContainer second">
-                 <div class="waves-effect waves-light btn pickerButton btnUp">
-                    <i class="material-icons">add</i>
-                </div>
-                <div class="timenumber" id="time-minute">
-                    00
-                </div>
-                <div class="waves-effect waves-light btn pickerButton btnDown">
-                    <i class="material-icons">add</i>
-                </div>
-            </div>
-        </div>
 
 
 
