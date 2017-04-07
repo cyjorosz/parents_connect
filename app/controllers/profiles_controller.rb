@@ -12,6 +12,12 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @tags = ActsAsTaggableOn::Tag.all.map { |tag| tag.name }
+
+    @userTags = {}
+    @tags.each do |name|
+      @userTags['tag'] = name
+    end
   end
 
   def update

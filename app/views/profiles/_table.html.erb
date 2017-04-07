@@ -5,7 +5,7 @@
           <th>Event description</th>
           <th>Event date</th>
           <th>Event location</th>
-          <th>People attending</th>
+          <th>Other attending</th>
       </tr>
     </thead>
 
@@ -18,7 +18,7 @@
           </td>
           <td><%= event.start_date %></td>
           <td><%= event.street_name %> <%= event.street_number %></td>
-          <td><%= event.attendances.count + 1 %></td>
+          <td><%= event.attendances.count %></td>
       <% end %>
       </tr>
     </tbody>
