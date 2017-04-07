@@ -1,15 +1,29 @@
-$(".btnUp").click(function(){
+$(".btnUpHour").click(function(){
    var num = $(this).parent(".timeContainer").find(".timenumber");
     var val = parseInt($(num).text())
     if(val < 60) //change this if you wan't hour logic
         $(num).text(("0" + (val + 1)).slice(-2));
 });
 
-$(".btnDown").click(function(){
+$(".btnUpMinute").click(function(){
+   var num = $(this).parent(".timeContainer").find(".timenumber");
+    var val = parseInt($(num).text())
+    if(val < 60) //change this if you wan't hour logic
+        $(num).text(("0" + (val + 10)).slice(-2));
+});
+
+$(".btnDownHour").click(function(){
     var num = $(this).parent(".timeContainer").find(".timenumber");
     var val = parseInt($(num).text())
     if(val > 0) //probably you won't change this
         $(num).text(("0" + (val - 1)).slice(-2));
+});
+
+$(".btnDownMinute").click(function(){
+    var num = $(this).parent(".timeContainer").find(".timenumber");
+    var val = parseInt($(num).text())
+    if(val > 0) //probably you won't change this
+        $(num).text(("0" + (val - 10)).slice(-2));
 });
 
 $('#event-submit-button').on('click', function(event) {
