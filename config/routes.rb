@@ -10,7 +10,7 @@
     resources :events, only: [:new, :edit, :create, :update, :destroy]
   end
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show, :destroy]
 
   resources :attendances, only: [ :create, :destroy ]
 
