@@ -16,7 +16,7 @@
             <i class="material-icons">person_outline</i>
           <% end %>
         </li>
-        <li><%= link_to t(".sign_out", default: "LogOut"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn light-blue darken-3 hoverable" %></li>
+        <li><%= link_to t(".sign_out log-out", default: "Log-out"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn light-blue darken-3 hoverable" %></li>
       <% else %>
         <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %></li>
         <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4 hoverable" %><i class="material-icons right">person_outline</i>
