@@ -1,8 +1,19 @@
 // External libraries
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Josefin+Sans');
 
 // Your CSS
 @import "layout/index";
 @import "components/index";
 @import "pages/index";
+
+html {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #424242;
+  font-size: 1.1em;
+  }
+h1, h2, h3, h4, h5 {
+  font-family: 'Amatic SC', cursive;
+  color: #424242;
+}
