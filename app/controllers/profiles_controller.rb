@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
+    @profiles = current_user.profile.profiles_near_me
 
   end
 

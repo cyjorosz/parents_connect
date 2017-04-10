@@ -16,18 +16,13 @@ class Profile < ApplicationRecord
   acts_as_taggable_on :interests
 
   geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
+  after_validation :geocode, if: :street_name_changed?
 
   def full_address
-    "#{street_number} #{street_name}, #{zipcode}, #{city} #{country}"
+    "#{street_name}, #{zipcode}, #{city} #{country}"
   end
 
-  def full_address_changed?
-    street_number_changed? || street_name_changed? || zipcode_changed? || city_changed? || country_changed?
+  def profiles_near_me
+    profiles = Profile.near([self.latitude, self.longitude], 5, units: :km).where.not(id: self.id)
   end
-
-  # def profiles_in_5k_radius
-  #   self.near([:latitude, :longitude], 5)
-  # end
-
 end
