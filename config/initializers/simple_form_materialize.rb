@@ -26,7 +26,7 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :min_max
     b.optional :readonly
-    b.use :input, class: 'materialize-textarea' 
+    b.use :input, class: 'materialize-textarea'
     b.use :label
     b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
@@ -47,11 +47,11 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     b.use :label
-    b.wrapper tag: 'label' do |ba| 
+    b.wrapper tag: 'label' do |ba|
       ba.use :input
       ba.use :tag, tag: 'span', class: 'lever'
     end
-    
+
     b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
   end
@@ -68,7 +68,7 @@ SimpleForm.setup do |config|
   config.wrappers :materialize_file_input, tag: 'div', class: 'file-field input-field col', error_class: 'has-error' do |b|
     b.use :html5
 
-    b.wrapper tag: :div, class: 'btn' do |ba| 
+    b.wrapper tag: :div, class: 'btn' do |ba|
       ba.use :tag, tag: :span, text: :label_text
       ba.use :input
     end
@@ -83,8 +83,8 @@ SimpleForm.setup do |config|
 
   config.wrappers :materialize_multiple_file_input, tag: 'div', class: 'file-field input-field col', error_class: 'has-error' do |b|
     b.use :html5
-    
-    b.wrapper tag: :div, class: 'btn' do |ba| 
+
+    b.wrapper tag: :div, class: 'btn' do |ba|
       ba.use :tag, tag: :span, text: :label_text
       ba.use :input, multiple: true
     end
@@ -96,6 +96,7 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
   end
+ config.label_text = proc { |label, required| "#{label}" }
 
   config.default_wrapper = :materialize_form
   config.wrapper_mappings = {

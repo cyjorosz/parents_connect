@@ -34,7 +34,7 @@ function onPlaceChanged() {
 
 
   if ($('#profile_street_name').length) {
-   $('#profile_street_name').trigger('blUr').val(components.address);
+   $('#profile_street_name').trigger('blur').val(components.address);
    $('#profile_street_number').val(components.street_number);
    $('#profile_zipcode').val(components.zip_code);
    $('#profile_city').val(components.city);

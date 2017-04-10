@@ -12,19 +12,12 @@
 
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">
-      <%= event.description %>
+        <%= event.description %>
       </span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
         <%= event.start_date.try(:strftime, "%e %b %Y") %>
-        <%#= if event.duration %>
-          <!-- Duration <%#= event.duration %> minutes -->
-        <%# end %>
-        <%# if event.start_date %>
-          <%#= event.start_date.strftime('%Y') %>
-        <%# end %>
-
         <i class="material-icons right">close</i>
       </span>
       <p> <%= event.full_address %> </p>
