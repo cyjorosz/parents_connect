@@ -7,12 +7,13 @@
     @events = Event.upcoming.events_near_me(current_user.profile)
   end
 
+
   def show
+
     # @events = Event.where.not(latitude: nil, longitude: nil)
     # set host and participants to make front-end easier
     # @host = @event.profile
     # @attendance = @attendance.event.profile #to be tested - not sure about syntax
-
     # create empty Attendance object to be filled
 
 

@@ -5,22 +5,22 @@
           <th>Event description</th>
           <th>Event date</th>
           <th>Event location</th>
-          <th>Other attending</th>
       </tr>
     </thead>
 
     <tbody>
+       <% current_user.profile.events.each do |event| %>
       <tr>
-        <% current_user.profile.events.each do |event| %>
+
           <td><%= link_to event_path(event) do %>
             <%= event.description %>
           <% end %>
           </td>
-          <td><%= event.start_date %></td>
-          <td><%= event.street_name %> <%= event.street_number %></td>
-          <td><%= event.attendances.count %></td>
-      <% end %>
+          <td><%= event.start_date.try(:strftime, "%e %b %Y") %></td>
+          <td><%= event.street_name %> <%= event.street_number %>  </td>
       </tr>
+      <% end %>
+
     </tbody>
   </table>
 </div>
