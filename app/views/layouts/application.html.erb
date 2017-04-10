@@ -12,13 +12,14 @@
   <meta content='<%= user_signed_in? ? current_user.profile.id : "" %>' name='profile-id'/>
 
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
-  
+
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
   <%= yield %>
+  <%= render 'shared/footer' %>
 
 
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
@@ -35,16 +36,16 @@
      <script type="text/javascript">
          channel = <%= raw ('"' + '/notifications' + current_user.profile.id.to_s + '"') %>
          PrivatePub.subscribe(channel, function(data) {
- 
+
          var sender_id = data.sid;
          var recipient_id = data.rip;
          var conversation_id = data.cid;
- 
- 
+
+
          $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
              chatBox.chatWith(conversation_id);
          });
- 
+
          });
      </script>
       <%= subscribe_to "/notifications" + current_user.profile.id.to_s %>
