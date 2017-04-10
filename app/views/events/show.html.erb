@@ -2,10 +2,9 @@
 
 <div class="container">
 
-
   <h1> <%= @event.description %> </h1>
-    <div class="row">
-      <div class="col s6" >
+  <div class="row">
+    <div class="col s6" >
       <div class="padding">
         <p> When? <%= @event.start_date.try(:strftime, "%e %b %Y") %> <%= @event.start_time %></p>
         <p> Duration: <%= @event.duration %> minutes </p>
@@ -18,43 +17,55 @@
       <div class="col s6">
         <div id="map" style="width: 100%; height: 400px;"></div>
       </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col">
-      <% if @event.profile == current_user.profile %>
-        <h3>you're the host!</h3>
-          <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
-      <% elsif @event.profile_attending?(@attendances, current_user.profile.id) %>
-         <%= link_to "Not attending?", attendance_path, class: "btn", method: :delete %>
-      <% else %>
-        <%= render 'events/attendancebutton' %>
-      <% end %>
-
-      <p>attendances are:</p>
-      <% @attendances.each do |attendance| %>
-      <%= attendance.profile.last_name %>
-      <% end %>
     </div>
-   </div>
+
+    <div class="row">
+      <div class="col s12">
+        <% if @event.profile == current_user.profile %>
+        <h3>you're the host!</h3>
+        <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
+        <% elsif @event.profile_attending?(@attendances, current_user.profile.id) %>
+        <%= link_to "Can't go?", attendance_path, class: "btn", method: :delete %>
+        <% else %>
+        <%= render 'events/attendancebutton' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <h3> Attending </h3>
+        <% @attendances.each do |attendance| %>
+        <%= link_to profile_path(attendance.profile) do %>
+        <ul class="collection">
+          <li class="collection-item avatar">
+            <img src="<%= attendance.profile.photo %>" alt="" class="circle">
+            <span class="title"> <%= attendance.profile.first_name %> <%= attendance.profile.last_name %></span>
+            <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+          </li>
+        </ul>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+
 
 
   <% content_for(:after_js) do %>
   <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
+  $(document).ready(function() {
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: { id: 'map' } }, function() {
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  if (markers.length == 0) {
+  handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
 <% end %>
 <% end %>
