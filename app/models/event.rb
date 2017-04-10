@@ -10,15 +10,15 @@ class Event < ApplicationRecord
   validates :country, presence: true
 
   geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
+  after_validation :geocode, if: :street_name_changed?
 
   def full_address
-    "#{street_number} #{street_name}, #{zipcode}, #{city} #{country}"
+    "#{street_name}, #{zipcode}, #{city} #{country}"
   end
 
-  def full_address_changed?
-    street_number_changed? || street_name_changed? || zipcode_changed? || city_changed? || country_changed?
-  end
+  # def full_address_changed?
+  #   street_number_changed? || street_name_changed? || zipcode_changed? || city_changed? || country_changed?
+  # end
 
   def profile_attending?(attendances, current_profile_id)
     attendances.each do |attendance|
