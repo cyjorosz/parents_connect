@@ -8,11 +8,27 @@
 
     resources :kids, only: [:new, :create, :update, :destroy]
     resources :events, only: [:new, :edit, :create, :update, :destroy]
+
+  end
+
+
+  resource :profiles do
+
+
+    resources :conversations do
+        resources :messages
+    end
+
+  end
+  
+  resources :conversations do
+      resources :messages
   end
 
   resources :events, only: [:index, :show, :destroy]
 
   resources :attendances, only: [ :create, :destroy ]
+
 
   if Rails.env.development?
     mount Localtower::Engine, at: "localtower"

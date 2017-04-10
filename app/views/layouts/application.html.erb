@@ -7,6 +7,14 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta content='<%= user_signed_in? ? current_user.profile.id : "" %>' name='profile-id'/>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+  
+  <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render 'shared/navbar' %>
@@ -23,4 +31,23 @@
   <%= yield(:after_js) %>
 
 </body>
+
+  <% if current_user %>
+     <script type="text/javascript">
+         channel = <%= raw ('"' + '/notifications' + current_user.profile.id.to_s + '"') %>
+         PrivatePub.subscribe(channel, function(data) {
+ 
+         var sender_id = data.sid;
+         var recipient_id = data.rip;
+         var conversation_id = data.cid;
+ 
+ 
+         $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+             chatBox.chatWith(conversation_id);
+         });
+ 
+         });
+     </script>
+      <%= subscribe_to "/notifications" + current_user.profile.id.to_s %>
+     <% end %>
 </html>

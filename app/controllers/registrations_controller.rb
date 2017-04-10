@@ -1,8 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
-    super do
-      Profile.create(user_id: resource.id)
+
+    super do |user|
+      if user.id
+        Profile.create(user_id: user.id)
+      end
     end
   end
 

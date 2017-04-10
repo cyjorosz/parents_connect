@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170410085457) do
 
   # These are extensions that must be enabled in order to support this database
@@ -38,6 +39,15 @@ ActiveRecord::Schema.define(version: 20170410085457) do
     t.index ["profile_id"], name: "index_attendances_on_profile_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "description"
     t.string   "street_name"
@@ -63,6 +73,16 @@ ActiveRecord::Schema.define(version: 20170410085457) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["profile_id"], name: "index_kids_on_profile_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "profile_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["profile_id"], name: "index_messages_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -134,5 +154,7 @@ ActiveRecord::Schema.define(version: 20170410085457) do
   add_foreign_key "attendances", "profiles"
   add_foreign_key "events", "profiles"
   add_foreign_key "kids", "profiles"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
 end

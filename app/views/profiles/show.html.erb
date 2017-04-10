@@ -3,6 +3,9 @@
 <div class="row">
   <div class="col s12 m4 l4">
 <%= render 'profiles/card' %>
+    <% if @profile != current_user.profile%>
+    <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => @profile.id %>
+    <% end %>
   </div>
   <div class="col s12 m8 l8">
       <h4 class="title grey-text text-darken-4">EVENTS</h4>
