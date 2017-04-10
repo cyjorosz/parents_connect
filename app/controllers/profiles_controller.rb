@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
-    # @kids = Kid.all
+    @profiles = current_user.profile.profiles_near_me
+
   end
 
   def show
