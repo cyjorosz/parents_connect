@@ -17,4 +17,6 @@ class Profile < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   acts_as_taggable
   acts_as_taggable_on :interests
+
+  has_many :conversations, :foreign_key => :sender_id
 end
