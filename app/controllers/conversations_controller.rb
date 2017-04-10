@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
-  layout false
+  layout false, except: :index
 
   def index
     @profile = current_user.profile
