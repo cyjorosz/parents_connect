@@ -23,6 +23,6 @@ class Profile < ApplicationRecord
   end
 
   def profiles_near_me
-    profiles = Profile.near([self.latitude, self.longitude], 5, units: :km).where.not(id: self.id)
+    profiles = Profile.near([self.latitude, self.longitude], 5, units: :km, :order => false).where.not(id: self.id)
   end
 end
