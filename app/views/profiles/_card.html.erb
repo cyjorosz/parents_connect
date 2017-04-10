@@ -40,5 +40,15 @@
           <% end %>
         </ul>
         <%= render 'kids/form' %>
+
+        <% if @profile != current_user.profile%>
+          <%= link_to "Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => @profile.id %>
+        <% end %>
+
       </div>
+
+
+
+
+
     </div>
