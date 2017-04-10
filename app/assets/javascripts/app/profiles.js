@@ -1,4 +1,4 @@
-var ready = function () {
+var PageIsReady = function () {
 
     /**
      * When the send message link on our home page is clicked
@@ -6,11 +6,15 @@ var ready = function () {
      * recipient_id
      */
 
+     console.log('ready');
+     
     $('.start-conversation').click(function (e) {
         e.preventDefault();
 
         var sender_id = $(this).data('sid');
         var recipient_id = $(this).data('rip');
+        
+        console.log('conversation');
 
         $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
             chatBox.chatWith(data.conversation_id);
@@ -64,7 +68,8 @@ var ready = function () {
     });
 
 
-}
+};
 
-$(document).ready(ready);
-$(document).on("page:load", ready);
+$(document).ready(function() {
+    PageIsReady();
+});

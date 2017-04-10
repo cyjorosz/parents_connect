@@ -5,14 +5,19 @@ class ConversationsController < ApplicationController
 
   def index
     @profile = current_user.profile
-    @conversations 
+    
+    @conversations = Conversation.involving(current_user.profile).order("created_at DESC")
+
+    # Conversation.where('sender_id=? OR recipient_id=?', @profile.id, @profile.id)
   end
 
   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+    previous_conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+
+    if previous_conversation
+      @conversation = previous_conversation
     else
-      @conversation = Conversation.create!(conversation_params)
+      @conversation = Conversation.create(conversation_params)
     end
 
     render json: { conversation_id: @conversation.id }

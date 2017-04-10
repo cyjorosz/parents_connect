@@ -11,7 +11,7 @@
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
 
-var ready = function () {
+var PageIsReadyChat = function () {
 
     chatBox = {
 
@@ -306,5 +306,4 @@ var ready = function () {
 
 }
 
-$(document).ready(ready);
-$(document).on("page:load", ready);
+$(document).ready(PageIsReadyChat);

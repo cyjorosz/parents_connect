@@ -8,6 +8,9 @@ class MessagesController < ApplicationController
     @message.profile_id = current_user.profile.id
     @message.save!
     @path = conversation_path(@conversation)
+
+    rip = current_user.profile == @conversation.recipient ? @conversation.sender : @conversation.recipient
+    PrivatePub.publish_to("/notifications" + rip.id.to_s, cid: @conversation.id, sid: current_user.profile.id, rip:  rip.id)
   end
 
   private

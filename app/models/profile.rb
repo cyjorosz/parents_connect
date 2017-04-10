@@ -5,6 +5,8 @@ class Profile < ApplicationRecord
   has_many :kids, dependent: :destroy
   has_many :attendances, dependent: :destroy
 
+  validates :user_id, presence: true
+
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
   validates :street_name, presence: true, on: :update
