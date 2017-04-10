@@ -9,6 +9,10 @@
     resources :kids, only: [:new, :create, :update, :destroy]
     resources :events, only: [:new, :edit, :create, :update, :destroy]
 
+    resources :conversations do
+      resources :messages
+    end
+
   end
 
 

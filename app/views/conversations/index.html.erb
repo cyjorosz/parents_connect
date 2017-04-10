@@ -1,0 +1,19 @@
+<h3>Your conversations</h3>
+
+<% @conversations.each do |conversation| %>
+<% if Profile.find(conversation.sender_id) == current_user.profile %>
+  <%= Profile.find(conversation.recipient).first_name %>
+      <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => Profile.find(conversation.recipient).id %>
+      <h4>Last messages</h4>
+      <% conversation.messages.last(10).each do |message|%>
+        <p><%= message.body %></p>
+      <% end %>
+  <% else %>
+  <%= Profile.find(conversation.sender_id).first_name %>
+      <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => Profile.find(conversation.sender_id).id %>
+            <h4>Last messages</h4>
+      <% conversation.messages.last(10).each do |message|%>
+        <p><%= message.body %></p>
+      <% end %>
+  <% end %>
+<% end %>
