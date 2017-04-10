@@ -5,7 +5,6 @@ class Event < ApplicationRecord
   validates :start_time, presence: true
   validates :description, presence: true
   validates :street_name, presence: true
-  validates :street_number, presence: true
   validates :city, presence: true
   validates :zipcode, presence: true
   validates :country, presence: true
