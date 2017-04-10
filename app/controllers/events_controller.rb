@@ -3,7 +3,8 @@
   before_action :set_event, only: [:show, :update, :edit, :destroy]
 
   def index
-    @events = Event.all
+    # @events = Event.all
+    @events = Event.upcoming.events_near_me(current_user.profile)
   end
 
   def show
@@ -13,6 +14,7 @@
     # @attendance = @attendance.event.profile #to be tested - not sure about syntax
 
     # create empty Attendance object to be filled
+
 
     @hash = Gmaps4rails.build_markers(@event) do |address, marker|
       marker.lat address.latitude
@@ -49,9 +51,6 @@
       render :new
 #     to be confirmed
     end
-  end
-
-  def edit
   end
 
   def update

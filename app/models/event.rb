@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  scope :upcoming, -> { where("start_date >= ?", Date.today) }
+
   belongs_to :profile
   has_many :attendances, dependent: :destroy
   validates :start_date, presence: true
@@ -11,6 +13,10 @@ class Event < ApplicationRecord
 
   geocoded_by :full_address
   after_validation :geocode, if: :street_name_changed?
+
+  def self.events_near_me(profile)
+    self.near([profile.latitude, profile.longitude], 5, units: :km,  order: "start_date ASC, distance ASC")
+  end
 
   def full_address
     "#{street_name}, #{zipcode}, #{city} #{country}"
@@ -27,6 +33,7 @@ class Event < ApplicationRecord
     return false
   end
 
+end
 
   # def formatted_duration(total_minute)
   #   hours = total_minute / 60
@@ -34,4 +41,4 @@ class Event < ApplicationRecord
   #   "#{ hours }h #{ minutes }min"
   # end
 
-end
+
