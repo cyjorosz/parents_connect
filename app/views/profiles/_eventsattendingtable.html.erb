@@ -1,0 +1,25 @@
+<div class="card-content">
+  <h5 class="title grey-text text-darken-4">... I am attending</h5>
+  <table>
+    <thead>
+      <tr>
+          <th>Event description</th>
+          <th>Event date</th>
+          <th>Event location</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% current_user.profile.attendances.each do |attendance| %>
+      <tr>      
+        <td width="500"><%= link_to event_path(attendance.event) do %>
+          <%= attendance.event.description %>
+        <% end %>
+          </td>
+          <td><%= attendance.event.start_date.try(:strftime, "%e %b %Y") %></td>
+          <td><%= attendance.event.street_name %> <%= attendance.event.street_number %>  </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
