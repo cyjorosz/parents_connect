@@ -24,12 +24,12 @@
     end
 
   end
-  
+
   resources :conversations do
       resources :messages
   end
 
-  resources :events, only: [:index, :show, :destroy]
+  resources :events, only: [:index, :show]
 
   resources :attendances, only: [ :create, :destroy ]
 
