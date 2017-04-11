@@ -19,6 +19,11 @@
         <%= @event.city %>
         <%= @event.zipcode %>
         <%= @event.country %></div>
+        <% if @event.profile == current_user.profile %>
+          <%= link_to edit_profile_event_path(@event), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
+          <i class="large material-icons">mode_edit</i>
+          <% end %>
+        <% end %>
       </div>
       <div class="col s6">
         <div id="map" style="width: 100%; height: 400px;"></div>
