@@ -2,8 +2,7 @@
 
 <div class="container">
 
-  <h1>Events Near You</h1>
-
+  <h1>Events</h1>
 
   <div class="flex-container">
     <% @events.each do |event| %>
@@ -24,7 +23,7 @@
         </span>
         <p> <%= event.full_address %> </p>
 
-        <p><a class="waves-effect waves-light btn" href=" <%= event_path(event) %>">More Info</a></p>
+        <p><a class="waves-effect waves-light btn button-green" href=" <%= event_path(event) %>">More Info</a></p>
       </div>
     </div>
     <% end %>

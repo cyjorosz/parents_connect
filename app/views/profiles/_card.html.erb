@@ -6,7 +6,7 @@
 
       <div class="card-content user-profile-card">
         <% if @profile == current_user.profile%>
-        <%= link_to edit_profile_path(current_user), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable edit-btn-profile" do %>
+        <%= link_to edit_profile_path(current_user), class: "btn-floating activator waves-effect waves-light button-green lighten-1 right hoverable edit-btn-profile" do %>
         <i class="large material-icons">mode_edit</i>
         <% end %>
         <% end %>
