@@ -36,7 +36,12 @@
         <p class="description-profile grey-text text-lighten-2">KIDS</p>
         <ul>
           <% @profile.kids.each do |kid| %>
-          <li class="text-darken-4 description-text"><%= kid.gender.capitalize %> <%= kid.age(kid.date_of_birth) %></li>
+          <li class="text-darken-4 description-text"><%= kid.gender.capitalize %> <%= kid.age(kid.date_of_birth) %>
+
+            <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-floating activator waves-effect waves-light red lighten-1 right hoverable" do %>
+              <i class="material-icons">close</i>
+            <% end %>
+          </li>
           <% end %>
         </ul>
         <%= render 'kids/form' %>

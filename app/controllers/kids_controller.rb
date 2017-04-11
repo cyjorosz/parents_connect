@@ -23,6 +23,7 @@ class KidsController < ApplicationController
   end
 
   def destroy
+    @profile = @kid.profile
     @kid.destroy
     redirect_to profile_path(@profile)
   end
