@@ -7,12 +7,14 @@
     <div class="col s6" >
       <div class="padding">
         <p> When?  <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %> </p>
+        <% unless @event.duration.nil? %>
         <p> Duration:
-        <% if @event.duration >= 60 %>
-          <p><%= @event.duration / 60 %> hours </p>
+          <% if @event.duration >= 60 %>
+            <p><%= @event.duration / 60 %> hours </p>
           <% else  %>
-           <p> <%= @event.duration %> minutes </p>
+            <p> <%= @event.duration %> minutes </p>
           <% end %>
+        <% end %>
         </p>
         <p> Where? </p> <%= @event.street_name %>
         <%= @event.street_number %>
