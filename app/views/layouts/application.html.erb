@@ -15,10 +15,12 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="Site">
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
+  <main class="Site-content">
   <%= yield %>
+  </main>
   <%= render 'shared/footer' %>
 
 
