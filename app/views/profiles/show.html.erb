@@ -12,11 +12,12 @@
       <i class="large material-icons">add</i>
     <% end %>
     <% unless @profile.events.empty? %>
-    <%= render 'profiles/eventshosttable' %>
+      <%= render 'profiles/eventshosttable' %>
     <br>
     <% end %>
     <% unless @profile.attendances.empty? %>
-    <%= render 'profiles/eventsattendingtable' %>
+      <%= render 'profiles/eventsattendingtable' %>
     <% end %>
+  <% end %>
   </div>
 </div>
