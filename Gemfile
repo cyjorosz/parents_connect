@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'materialize-sass'
 gem 'simple_form'
 gem 'materialize-form'
+
 gem 'autoprefixer-rails'
 gem 'private_pub'
 gem 'thin'
@@ -37,7 +38,7 @@ end
 
 group :development, :test do
   gem 'localtower'
-
+  gem 'faker'
   gem 'binding_of_caller'
   gem 'better_errors'
 

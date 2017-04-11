@@ -1,1 +1,41 @@
-// Your footer style
+/* Footer design */
+.page-footer{
+  // background-color: #333333;
+  // padding-top: 100px;
+  // margin-top: 17px;
+  // margin:0 0 10px;
+    background-color: white;
+    position: relative;
+    padding: 10px 0;
+    // border-top: 1px solid #869fcb;
+    overflow: hidden;
+}
+
+.text{
+  // color: #CCCCCC;
+  color: #050505;
+  padding-bottom: 30px;
+  padding-left: 10px;
+}
+
+.icon{
+  padding-left: 20px;
+  color: #050505;
+}
+
+.icon-green{
+  padding-left: 20px;
+  color: #186A69;
+}
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+

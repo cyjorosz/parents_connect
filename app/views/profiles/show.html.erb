@@ -7,6 +7,7 @@
 
   <div class="col s12 m8 l8">
     <h4 class="title grey-text text-darken-4">EVENTS</h4>
+    <% if @profile == current_user.profile%>
     <%= link_to new_profile_event_path(current_user), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
       <i class="large material-icons">add</i>
     <% end %>

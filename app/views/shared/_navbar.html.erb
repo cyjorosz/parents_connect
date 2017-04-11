@@ -1,27 +1,26 @@
 <nav>
-  <div class="nav-wrapper light-blue darken-4">
+  <div class="nav-wrapper">
     <%= link_to root_path, class: "brand-logo" do %>
-    <%= image_tag "logo.svg", class: "logo-medium", id: "logo-navbar" %>
+    <%= image_tag "logo.png", class: "logo-medium", id: "logo-navbar" %>
     <% end %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to conversations_path(current_user) do %>
-            <i class="material-icons">forum</i>
-          <% end %>
-        </li>
+
+        <li> <%= link_to "Profiles", profiles_path, class: "text-black" %></li>
+        <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
+        <li> <%= link_to "Messages", conversations_path(current_user), class: "text-black" %>  </li>
         <li>
           <%= link_to profile_path(current_user) do %>
           <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
           <% end %>
-
-
         </li>
-        <li><%= link_to t(".sign_out log-out", default: "Log-out"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn light-blue darken-3 hoverable" %></li>
+
+
+        <li><%= link_to t(".sign_out log-out", default: "Log-out"), destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn button-green hoverable" %></li>
       <% else %>
         <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %></li>
-        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4 hoverable" %><i class="material-icons right">person_outline</i>
+        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4 hoverable" %>
       <% end %>
     </ul>
     <!-- start of colapse menu -->
@@ -39,5 +38,9 @@
     </ul>
   </div>
 </nav>
+
+
+
+
 
 
