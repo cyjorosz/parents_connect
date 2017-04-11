@@ -1,4 +1,5 @@
 <div class="card-content">
+  <h5 class="title grey-text text-darken-4">... I am hosting</h5>
   <table>
     <thead>
       <tr>
@@ -12,7 +13,7 @@
        <% current_user.profile.events.each do |event| %>
       <tr>
 
-          <td><%= link_to event_path(event) do %>
+          <td width="500"><%= link_to event_path(event) do %>
             <%= event.description %>
           <% end %>
           </td>
@@ -20,7 +21,6 @@
           <td><%= event.street_name %> <%= event.street_number %>  </td>
       </tr>
       <% end %>
-
     </tbody>
   </table>
 </div>
