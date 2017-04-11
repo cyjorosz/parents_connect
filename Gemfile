@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'materialize-sass'
 gem 'simple_form'
 gem 'materialize-form'
+
 gem 'autoprefixer-rails'
 gem 'private_pub'
 gem 'thin'
