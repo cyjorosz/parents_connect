@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
   def show
     @kid = Kid.new
     @kids = @profile.kids
+
+
   end
 
   def edit
