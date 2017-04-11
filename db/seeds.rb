@@ -175,12 +175,6 @@ event = Event.create!(
   )
 
 
-
-
-
-
-
-
 ### fake users
 #USERS
 15.times do
