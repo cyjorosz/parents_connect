@@ -7,39 +7,37 @@
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
 
-        <li> <%= link_to "Profiles", profiles_path, class: "text-black" %></li>
-        <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
-        <li> <%= link_to "Messages", conversations_path(current_user), class: "text-black" %>  </li>
-        <li>
-          <%= link_to profile_path(current_user) do %>
-          <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
-          <% end %>
+      <li> <%= link_to "Profiles", profiles_path, class: "text-black" %></li>
+      <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
+      <li> <%= link_to "Messages", conversations_path(current_user), class: "text-black" %>  </li>
+      <li>
+        <%= link_to profile_path(current_user) do %>
+        <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
+        <% end %>
 
-        </li>
+      </li>
 
-
-
-        <li><%= link_to t(".sign_out log-out", default: "Log-out"), destroy_user_session_path, method: :delete, class: "button-grey" %></li>
+      <li><%= link_to t(".sign_out log-out", default: "Log-out"), destroy_user_session_path, method: :delete, class: "button-grey" %></li>
       <% else %>
-        <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %></li>
-        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "waves-effect waves-light btn yellow darken-4 hoverable" %>
-      <% end %>
-    </ul>
-    <!-- start of colapse menu -->
-    <ul class="side-nav" id="mobile-demo">
-    <% if user_signed_in? %>
-      <%= link_to root_path do %>
+      <li><%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "button-grey" %></li>
+      <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "button-grey" %>
+        <% end %>
+      </ul>
+      <!-- start of colapse menu -->
+      <ul class="side-nav" id="mobile-demo">
+        <% if user_signed_in? %>
+        <%= link_to root_path do %>
         <p id="mobile-menu-text">Log-out</p>
-      <% end %>
-    <% else %>
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    <% end %>
-    </ul>
-  </div>
-</nav>
+        <% end %>
+        <% else %>
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
 
 
