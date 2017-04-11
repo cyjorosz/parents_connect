@@ -4,5 +4,8 @@ class ApplicationController < ActionController::Base
   # FIX ME TOO
   # attr_reader :current_user
   # helper_method :current_user
+def after_sign_in_path_for(resource)
+  profile_path(resource.profile)
+end
 
 end
