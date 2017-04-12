@@ -5,6 +5,11 @@
   def index
     # @events = Event.all
     @events = Event.upcoming.events_near_me(current_user.profile)
+
+    @hash = Gmaps4rails.build_markers(@events) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
+    end
   end
 
 

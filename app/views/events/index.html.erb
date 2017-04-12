@@ -1,31 +1,65 @@
 <% content_for :title, "Events Near You" %>
 
-<div class="container">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s12 m6">
+          <h1>Events</h1>
 
-  <h1>Events</h1>
+    <div class="flex-container">
 
-  <div class="flex-container">
-    <% @events.each do |event| %>
-    <div class="card medium hoverable">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="https://unsplash.it/200/300?random">
+      <% @events.each do |event| %>
+      <div class="card medium hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://unsplash.it/200/300?random">
+        </div>
+
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">
+            <%= event.description %>
+          </span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">
+            <%= event.start_date.try(:strftime, "%e %b %Y") %>
+            <i class="material-icons right">close</i>
+          </span>
+          <p> <%= event.full_address %> </p>
+
+          <p><a class="waves-effect waves-light btn button-green" href=" <%= event_path(event) %>">More Info</a></p>
+        </div>
       </div>
-
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">
-          <%= event.description %>
-        </span>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">
-          <%= event.start_date.try(:strftime, "%e %b %Y") %>
-          <i class="material-icons right">close</i>
-        </span>
-        <p> <%= event.full_address %> </p>
-
-        <p><a class="waves-effect waves-light btn button-green" href=" <%= event_path(event) %>">More Info</a></p>
-      </div>
+      <% end %>
     </div>
-    <% end %>
+
+  </div>
+      <div class="col s12 m6">
+      <div class="fixed">
+
+  <div id="map" style="width: 100%; height: 100vh;"></div>
+  </div>
+  </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
+
+var handler = Gmaps.build('Google');
+handler.buildMap({
+provider: {
+  styles: styles},
+internal: { id: 'map' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
+<% end %>
