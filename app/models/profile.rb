@@ -19,7 +19,7 @@ class Profile < ApplicationRecord
   acts_as_taggable_on :interests
 
   has_many :conversations, :foreign_key => :sender_id
-  
+
   geocoded_by :full_address
   after_validation :geocode, if: :street_name_changed?
 
@@ -29,5 +29,9 @@ class Profile < ApplicationRecord
 
   def profiles_near_me
     profiles = Profile.near([self.latitude, self.longitude], 5, units: :km, :order => false).where.not(id: self.id)
+  end
+
+  def attending
+    Attendance.where(profile: self)
   end
 end

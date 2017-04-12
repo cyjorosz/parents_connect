@@ -7,17 +7,17 @@
 
   <div class="col s12 m8 l8">
     <h4 class="title grey-text text-darken-4">EVENTS</h4>
-    <% if @profile == current_user.profile%>
+    <% if @profile == current_user.profile %>
     <%= link_to new_profile_event_path(current_user), class: "btn-floating activator waves-effect waves-light button-green lighten-1 right hoverable" do %>
       <i class="large material-icons">add</i>
     <% end %>
-    <% unless @profile.events.empty? %>
+  <% end %>
+    <%# unless @profile.events.empty? %>
       <%= render 'profiles/eventshosttable' %>
     <br>
-    <% end %>
-    <% unless @profile.attendances.empty? %>
+    <%# end %>
+    <%# unless @profile.attendances.empty? %>
       <%= render 'profiles/eventsattendingtable' %>
-    <% end %>
-  <% end %>
+    <%# end %>
   </div>
 </div>
