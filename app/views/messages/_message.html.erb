@@ -3,7 +3,7 @@
     <%= cl_image_tag message_interlocutor(message).photo %>
   </div>
   <div class="chatboxmessagecontent">
-    <p><%= message.body %></p>
+    <p><%= EmojiParser.detokenize(message.body) %></p>
     <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
       <%= message_interlocutor(message).first_name %> • <%= message.created_at.strftime("%H:%M %p") %>
     </time>

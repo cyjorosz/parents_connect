@@ -17,6 +17,8 @@ gem 'uglifier'
 gem 'faker'
 gem 'materialize-sass'
 gem 'simple_form'
+gem 'gemoji'
+gem 'gemoji-parser'
 gem 'materialize-form'
 
 gem 'autoprefixer-rails'
