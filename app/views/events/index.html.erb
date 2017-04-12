@@ -3,17 +3,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col s12 m6">
-          <h1>Events</h1>
-
+      <h1>Events</h1>
     <div class="flex-container">
-
       <% @events.each do |event| %>
       <div class="card-panel white hoverable event-card">
-        <%= cl_image_tag event.profile.photo, class: "avatar", alt: "profile_background"  %>
+        <%= cl_image_tag event.profile.photo, class: "event-profile-pic", alt: "profile_background"  %>
         <span class="black-text">
+          <p class="host-description">host</p>
+
+          <p><%= event.start_date.try(:strftime, '%d %B') %></p>
+          <p class="due_date">Start time: <%= event.start_time.try(:strftime, "%l:%M %p" ) %></p>
           <%= event.description %>
-          <p>Date: <%= event.start_date.try(:strftime, '%d, %b %Y') %></p>
-          <p>Start time: <%= event.start_time %></p>
           </span>
         </div>
       <% end %>
