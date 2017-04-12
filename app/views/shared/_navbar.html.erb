@@ -10,7 +10,6 @@
 
       <li> <%= link_to "Profiles", profiles_path, class: "text-black" %></li>
       <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
-      <li> <%= link_to "Messages", conversations_path(current_user), class: "text-black" %>  </li>
       <li>
         <%= link_to profile_path(current_user) do %>
         <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
