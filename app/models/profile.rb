@@ -35,3 +35,4 @@ class Profile < ApplicationRecord
     Attendance.where(profile: self)
   end
 end
+
