@@ -7,12 +7,28 @@
 .event-profile-pic {
   position: absolute;
   right: 25px;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
 }
 .host-description {
   position: absolute;
   right: 30px;
   margin-top: 40px;
+}
+.event-description {
+  padding-top: 5px;
+}
+.event-date {
+  margin-left: 30px;
+  margin-top: 5px;
+  font-size: 27px;
+  color: #D7A378;
+}
+.event-time {
+  margin-left: 30px;
+  margin-top: 5px;
+}
+.background-color {
+  background-color: #F6F6F6;
 }

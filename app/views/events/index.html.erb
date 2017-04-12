@@ -2,18 +2,19 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col s12 m6">
+    <div class="col s12 m6 background-color">
       <h1>Events</h1>
     <div class="flex-container">
       <% @events.each do |event| %>
       <div class="card-panel white hoverable event-card">
-        <%= cl_image_tag event.profile.photo, class: "event-profile-pic", alt: "profile_background"  %>
+        <%= cl_image_tag event.profile.photo, class: "event-profile-pic z-depth-2", alt: "profile_background"  %>
         <span class="black-text">
-          <p class="host-description">host</p>
-
-          <p><%= event.start_date.try(:strftime, '%d %B') %></p>
-          <p class="due_date">Start time: <%= event.start_time.try(:strftime, "%l:%M %p" ) %></p>
+          <div class="event-date"><%= event.start_date.try(:strftime, '%d %B') %></div>
+          <div class="event-time"><%= event.start_time.try(:strftime, "%l:%M %p" ) %></div>
+          <hr class="hr-color">
+          <p class="event-description">
           <%= event.description %>
+          </p>
           </span>
         </div>
       <% end %>
