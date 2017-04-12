@@ -15,16 +15,35 @@
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
           <%= profile.first_name%> <%= profile.last_name %>
+          <% if profile.pregnant %>
+            <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
+          <% end %>
         </span>
+        <ul class="kids-list">
+        <% profile.kids.each do |kid| %>
+        <li>
+          <% if kid.gender == "male" %>
+            <%= image_tag 'mars.svg', class: 'logo-extra-small' %>
+          <% elsif kid.gender == "female" %>
+            <%= image_tag 'venus.svg', class: 'logo-extra-small' %>
+          <% else %>
+            <%= image_tag 'intersex.svg', class: 'logo-extra-small' %>
+          <% end %>
+          <%= kid.age(kid.date_of_birth) %>
+          </li>
+          <% end %>
+        </ul>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"> <%= profile.first_name %> <%= profile.last_name %> <i class="material-icons right">close</i></span>
         <!-- add icon for number of kids and ages -->
         <!-- if pregnant add another icon and due date month -->
         <p> <%= profile.bio %> </p>
+        <ul>
         <% profile.kids.each do |kid| %>
-        <%= kid.age(kid.date_of_birth) %>
+        <li><%= kid.age(kid.date_of_birth) %></li>
         <% end %>
+        </ul>
         <!-- for each profile show icon for each child -->
         <!-- for each child show icon for gender -->
 
