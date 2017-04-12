@@ -31,11 +31,8 @@ class Profile < ApplicationRecord
     profiles = Profile.near([self.latitude, self.longitude], 5, units: :km, :order => false).where.not(id: self.id)
   end
 
-  def due_date_in_month_format(due_date)
-
-     # x = Date::MONTHNAMES[Date.due_date.month]
-     # y = due_date.year
-     # "#{x} #{y}"
+  def attending
+    Attendance.where(profile: self)
   end
 end
 

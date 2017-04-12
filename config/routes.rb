@@ -29,7 +29,7 @@
       resources :messages
   end
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show, :destroy]
 
   resources :attendances, only: [ :create, :destroy ]
 

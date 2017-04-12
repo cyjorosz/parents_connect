@@ -11,8 +11,7 @@ class ProfilesController < ApplicationController
   def show
     @kid = Kid.new
     @kids = @profile.kids
-
-
+    @attendingevents = (@profile.attending.map { |attendance| attendance.event}).sort_by(&:start_date)
   end
 
   def edit
