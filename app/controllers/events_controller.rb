@@ -5,11 +5,16 @@
   def index
     # @events = Event.all
     @events = Event.upcoming.events_near_me(current_user.profile)
+
+    @hash = Gmaps4rails.build_markers(@events) do |address, marker|
+      marker.lat address.latitude
+      marker.lng address.longitude
+    end
   end
 
 
   def show
-
+    @host = @event.profile
     # @events = Event.where.not(latitude: nil, longitude: nil)
     # set host and participants to make front-end easier
     # @host = @event.profile

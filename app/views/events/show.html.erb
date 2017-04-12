@@ -6,6 +6,10 @@
   <div class="row">
     <div class="col s6" >
       <div class="padding">
+        <p>Hosted by: <%= link_to profile_path(@host) do %>
+          <%= @event.profile.first_name %> <%= @event.profile.last_name %>
+        </p>
+        <% end %>
         <p> When?  <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %> </p>
         <% unless @event.duration.nil? %>
         <p> Duration:
