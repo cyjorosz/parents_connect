@@ -36,15 +36,15 @@
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"> <%= profile.first_name %> <%= profile.last_name %> <i class="material-icons right">close</i></span>
-          <% if profile.pregnant %>
-            <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
-          <% end %>
         <p class="description-profile">BIO</p>
         <p class="due_date"> <%= profile.bio %> </p>
+        <% if profile.pregnant %>
+          <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
+        <% end %>
         <p class="description-profile">KIDS</p>
         <ul class="kids-list">
         <% profile.kids.each do |kid| %>
-        <li class="due_date">
+        <li class="due_date list-padding">
           <% if kid.gender == "male" %>
             <%= image_tag 'mars.svg', class: 'logo-extra-small' %>
           <% elsif kid.gender == "female" %>
