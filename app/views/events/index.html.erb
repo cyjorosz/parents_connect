@@ -8,26 +8,14 @@
     <div class="flex-container">
 
       <% @events.each do |event| %>
-      <div class="card medium hoverable">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://unsplash.it/200/300?random">
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">
-            <%= event.description %>
+      <div class="card-panel white hoverable event-card">
+        <%= cl_image_tag event.profile.photo, class: "avatar", alt: "profile_background"  %>
+        <span class="black-text">
+          <%= event.description %>
+          <p>Date: <%= event.start_date.try(:strftime, '%d, %b %Y') %></p>
+          <p>Start time: <%= event.start_time %></p>
           </span>
         </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">
-            <%= event.start_date.try(:strftime, "%e %b %Y") %>
-            <i class="material-icons right">close</i>
-          </span>
-          <p> <%= event.full_address %> </p>
-
-          <p><a class="waves-effect waves-light btn button-green" href=" <%= event_path(event) %>">More Info</a></p>
-        </div>
-      </div>
       <% end %>
     </div>
 
