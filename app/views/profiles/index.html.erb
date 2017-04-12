@@ -36,18 +36,28 @@
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"> <%= profile.first_name %> <%= profile.last_name %> <i class="material-icons right">close</i></span>
-        <!-- add icon for number of kids and ages -->
-        <!-- if pregnant add another icon and due date month -->
-        <p> <%= profile.bio %> </p>
-        <ul>
+          <% if profile.pregnant %>
+            <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
+          <% end %>
+        <p class="description-profile">BIO</p>
+        <p class="due_date"> <%= profile.bio %> </p>
+        <p class="description-profile">KIDS</p>
+        <ul class="kids-list">
         <% profile.kids.each do |kid| %>
-        <li><%= kid.age(kid.date_of_birth) %></li>
-        <% end %>
+        <li class="due_date">
+          <% if kid.gender == "male" %>
+            <%= image_tag 'mars.svg', class: 'logo-extra-small' %>
+          <% elsif kid.gender == "female" %>
+            <%= image_tag 'venus.svg', class: 'logo-extra-small' %>
+          <% else %>
+            <%= image_tag 'intersex.svg', class: 'logo-extra-small' %>
+          <% end %>
+          <%= kid.age(kid.date_of_birth) %>
+          </li>
+          <% end %>
         </ul>
-        <!-- for each profile show icon for each child -->
-        <!-- for each child show icon for gender -->
 
-        <p><a class="waves-effect waves-light btn" href=" <%= profile_path(profile) %>">Connect</a></p>
+        <p><a class="waves-effect waves-light btn profile-card-button" href=" <%= profile_path(profile) %>">Connect</a></p>
         <!-- Add neighbourhood  -->
       </div>
     </div>
