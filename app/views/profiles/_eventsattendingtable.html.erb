@@ -1,25 +1,29 @@
 <div class="card-content">
-  <h5 class="title grey-text text-darken-4">... I am attending</h5>
-  <table>
-    <thead>
-      <tr>
-          <th>Event description</th>
-          <th>Event date</th>
-          <th>Event location</th>
-      </tr>
-    </thead>
+  <% if @attendingevents.empty? %>
+    <h5 class="title grey-text text-darken-4">... future events attending ...</h5>
+  <% else %>
+    <h5 class="title grey-text text-darken-4">... attending ...</h5>
+    <table>
+      <thead>
+        <tr>
+            <th>Event description</th>
+            <th>Event date</th>
+            <th>Event location</th>
+        </tr>
+      </thead>
 
-    <tbody>
-    <% current_user.profile.attendances.each do |attendance| %>
-      <tr>      
-        <td width="500"><%= link_to event_path(attendance.event) do %>
-          <%= attendance.event.description %>
+      <tbody>
+      <% @attendingevents.each do |event| %>
+        <tr>      
+          <td width="500"><%= link_to event_path(event) do %>
+            <%= event.description %>
+          <% end %>
+            </td>
+            <td><%= event.start_date.try(:strftime, "%e %b %Y") %></td>
+            <td><%= event.street_name %> <%= event.street_number %>  </td>
+        </tr>
         <% end %>
-          </td>
-          <td><%= attendance.event.start_date.try(:strftime, "%e %b %Y") %></td>
-          <td><%= attendance.event.street_name %> <%= attendance.event.street_number %>  </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  <% end %>
 </div>
