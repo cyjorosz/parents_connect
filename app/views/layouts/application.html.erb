@@ -8,13 +8,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Parents Connect - Connect with parents in your neighbourhood">
+  <meta name="author" content="Parents Connect">
   <meta content='<%= user_signed_in? ? current_user.profile.id : "" %>' name='profile-id'/>
 
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
 
   <%= csrf_meta_tags %>
+
+  <meta property="og:title" content="Parents Connect - Connect with parents in your neighbourhood">
+  <meta property="og:image" content="http://www.parentsconnect.eu/logo_1200_630.png">
+  <meta property="og:image:url" content="http://www.parentsconnect.eu/logo_1200_630.png">
+
+  <meta property="og:description" content="We're here to help you connect with parents in your neighbourhood.">
+  <meta property="og:url" content="http://www.parentsconnect.eu/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Parents Connect"/>
 </head>
 <body class="Site">
   <%= render 'shared/navbar' %>
