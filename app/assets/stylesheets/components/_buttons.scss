@@ -2,6 +2,15 @@
   background-color: #186A69;
 }
 
+.btn-small{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color:white;
+  position: absolute;
+  margin: auto;
+}
+
 .button-gold{
   background-color: #DEA268;
 }
@@ -13,4 +22,22 @@
   border-width: 1px;
   opacity: 10%;
   background-color: white;
+}
+
+.btn-red {
+  z-index: 99999;
+  color: white;
+}
+
+.btn-red:hover {
+  z-index: 99999;
+  color: white;
+}
+
+
+.btn-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
 }
