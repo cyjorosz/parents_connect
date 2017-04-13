@@ -1,6 +1,20 @@
 <p class="description-profile grey-text text-lighten-2">ADD A KID</p>
+
+<div>
+
   <%= simple_form_for [@profile, @kid] do |f| %>
     <%= f.input :gender, collection: ["female", "male", "prefer not to say"] %>
     <%= f.input :date_of_birth %>
-    <%= f.button :submit, "Submit", class: "waves-effect waves-light btn button-green darken-4" %>
+    <%= f.button :submit, "Submit", class: "waves-effect waves-light btn button-green darken-4 btn-child" %>
   <% end %>
+</div>
+
+<br>
+<br>
+<br>
+
+<style>
+  .input-field.col label[for='kid_gender'] {
+    top: 14px;
+  }
+</style>

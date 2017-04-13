@@ -61,11 +61,10 @@
 
                <div class="btn-flex">
 
-
                  <% if @profile == current_user.profile%>
-                 <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-red" do %>
-                 <i class="fa fa-times"></i>
-                 <% end %>
+                  <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-red" do %>
+                      <i class="fa fa-times"></i>
+                   <% end %>
                  <% end %>
 
                  <div class="btn-small activator waves-effect waves-light red lighten-1 right hoverable"></div>
@@ -74,19 +73,26 @@
            </div>
          </div>
 
-         <div class="text-darken-4 description-text">
+
+           <% end %>
+
 
            <% if @profile.pregnant %>
-           <div class="row">
-            <div class="col s4">
-             <p class="due_date"> <%= image_tag 'pregnant.svg', class: 'logo-medium' %></div>
-               <div class="col s4 margintop">
-                 Due <%= @profile.due_date.try(:strftime, '%b %Y') %></p>
-               </div>
+         <div class="text-darken-4 description-text">
+            <div class="row">
+              <div class="col s4">
+                <%= image_tag 'pregnant.svg', class: 'logo-medium' %>
+              </div>
+
+              <div class="col s4 margintop">
+                <p>
+                 Due <%= @profile.due_date.try(:strftime, '%b %Y') %>
+                 </p>
+              </div>
              </div>
-             <% end %>
            </div>
-           <% end %>
+
+             <% end %>
 
 
            <% if @profile == current_user.profile%>
@@ -98,9 +104,5 @@
            <% end %>
 
          </div>
-
-
-
-
 
        </div>
