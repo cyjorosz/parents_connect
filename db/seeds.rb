@@ -1,4 +1,3 @@
-
 require 'faker'
 
 Message.destroy_all
@@ -114,11 +113,11 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Breakfast/picknick with my toddler at the playground - (BYO!) :)",
-  street_name: "Van Tuyll van Serooskerkenweg 140",
+  description: "Breakfast/picknic with my toddler at the playground :)",
+  street_name: "Oude Turfmarkt 129",
   start_date: "2017-04-20",
-  start_time: "10:00:00",
-  zipcode: "1076",
+  start_time: "11:30:00",
+  zipcode: "1012",
   city: "Amsterdam",
   country: "Netherlands",
   )
@@ -196,7 +195,7 @@ profile = Profile.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Eating fries with fellow pregnant mums!",
+  description: "Eating fries with fellow mums!",
   street_name: "Overhoeksplein 10",
   start_date: "2017-05-01",
   start_time: "14:00:00",
@@ -326,7 +325,7 @@ kid = Kid.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Visiting Oude Kerk",
+  description: "Visiting the zoo",
   street_name: "Oudekerksplein 23",
   start_date: "2017-04-19",
   start_time: "10:00:00",
@@ -337,7 +336,7 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Picknick with my kids",
+  description: "Picknic with my kids",
   street_name: "Flevopark 13",
   start_date: "2017-04-16",
   start_time: "14:30:00",
@@ -402,7 +401,7 @@ kid = Kid.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Playdate with my kids on the playground nearby, then maybe a coffee! :)",
+  description: "Playdate with my kids on the playground nearby, afterwards coffee! :)",
   start_date: "2017-04-20",
   start_time: "10:30:00",
   duration: 270,
@@ -414,7 +413,7 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Picknick! Please bring you on food/drinks :)",
+  description: "Picknic! Please bring you on food/drinks :)",
   start_date: "2017-05-16",
   start_time: "14:45:00",
   duration: 120,
@@ -426,11 +425,23 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Anybody in on a boottrip? Will reserve one for 10 people",
+  description: "Going swimming with my two kids ... and you! :))",
   start_date: "2017-05-16",
   start_time: "11:45:00",
   duration: 180,
   street_name: "Spuistraat 122",
+  zipcode: "1012",
+  city: "Amsterdam",
+  country: "Netherlands",
+  )
+
+event = Event.create!(
+  profile: profile,
+  description: "Baby sensory class - feel free to join :)",
+  start_date: "2017-05-12",
+  start_time: "11:30:00",
+  duration: 180,
+  street_name: "Wibautstraat 100",
   zipcode: "1012",
   city: "Amsterdam",
   country: "Netherlands",
@@ -460,19 +471,9 @@ event = Event.create!(
 end
 
 ### fill events with attendances
-30.times do
+32.times do
   if Attendance.create(
     event_id: rand(1..Event.all.size), 
     profile_id: rand(2..Profile.all.size))
   end
 end
-# 25.times do
-#   Attendance.create!(
-#     event_id: rand(1..Event.all.size),
-#     profile_id: rand(2..Profile.all.size),
-#     )
-# end
-
-
-
-
