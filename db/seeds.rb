@@ -91,7 +91,7 @@ profile = Profile.create!(
   zipcode: "1012",
   city: "Amsterdam",
   country: "Netherlands",
-  bio: "Hi, I am Carolyn and I just moved over to Amsterdam. Meeting forward to meeting fellow parents int the area!",
+  bio: "Hi, I am Carolyn and I just moved over to Amsterdam. Meeting forward to meeting fellow parents in the area!",
 )
 
 kid = Kid.create!(
