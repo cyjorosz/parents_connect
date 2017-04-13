@@ -15,22 +15,24 @@
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
           <%= profile.first_name%> <%= profile.last_name %>
-          <% if profile.pregnant %>
-            <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
-          <% end %>
+
         </span>
         <ul class="kids-list">
         <% profile.kids.each do |kid| %>
         <li>
           <% if kid.gender == "male" %>
-            <%= image_tag 'mars.svg', class: 'logo-extra-small' %>
+            <%= image_tag 'babyboy.svg', class: 'logo-small' %>
           <% elsif kid.gender == "female" %>
-            <%= image_tag 'venus.svg', class: 'logo-extra-small' %>
+            <%= image_tag 'babygirl.svg', class: 'logo-small' %>
           <% else %>
-            <%= image_tag 'intersex.svg', class: 'logo-extra-small' %>
+            <%= image_tag 'intersex.svg', class: 'logo-small' %>
           <% end %>
           <%= kid.age(kid.date_of_birth) %>
           </li>
+          <% end %>
+
+          <% if profile.pregnant %>
+            <p class="due_date"> <%= image_tag 'pregnant.svg', class: 'logo-small' %>  Due <%= profile.due_date.try(:strftime, '%b %Y') %></p>
           <% end %>
         </ul>
       </div>
@@ -38,24 +40,26 @@
         <span class="card-title grey-text text-darken-4"> <%= profile.first_name %> <%= profile.last_name %> <i class="material-icons right">close</i></span>
         <p class="description-profile">BIO</p>
         <p class="due_date"> <%= profile.bio %> </p>
-        <% if profile.pregnant %>
-          <p class="due_date">Due date: <%= profile.due_date.try(:strftime, '%b %Y') %></p>
-        <% end %>
         <p class="description-profile">KIDS</p>
         <ul class="kids-list">
         <% profile.kids.each do |kid| %>
         <li class="due_date list-padding">
-          <% if kid.gender == "male" %>
-            <%= image_tag 'mars.svg', class: 'logo-extra-small' %>
-          <% elsif kid.gender == "female" %>
-            <%= image_tag 'venus.svg', class: 'logo-extra-small' %>
-          <% else %>
-            <%= image_tag 'intersex.svg', class: 'logo-extra-small' %>
+            <% if kid.gender == "male" %>
+              <%= image_tag 'babyboy.svg', class: 'logo-small' %>
+            <% elsif kid.gender == "female" %>
+              <%= image_tag 'babygirl.svg', class: 'logo-small' %>
+            <% else %>
+              <%= image_tag 'intersex.svg', class: 'logo-small' %>
+            <% end %>
+            <%= kid.age(kid.date_of_birth) %>
+            </li>
           <% end %>
-          <%= kid.age(kid.date_of_birth) %>
-          </li>
+
+          <% if profile.pregnant %>
+            <p class="due_date"> <%= image_tag 'pregnant.svg', class: 'logo-small' %> Due <%= profile.due_date.try(:strftime, '%b %Y') %></p>
           <% end %>
         </ul>
+
 
         <p><a class="waves-effect waves-light btn profile-card-button" href=" <%= profile_path(profile) %>">Connect</a></p>
         <!-- Add neighbourhood  -->

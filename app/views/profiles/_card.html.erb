@@ -14,55 +14,93 @@
         <p class="description-profile grey-text text-lighten-2">NAME</p>
 
         <h5 class="description-name text-darken-4"> <%= @profile.first_name %> <%= @profile.last_name %><h5>
-        <% if @profile == current_user.profile%>
-        <p class="description-text grey-text text-lighten-2">BIRTHDATE</p>
+          <% if @profile == current_user.profile%>
+          <p class="description-profile grey-text text-lighten-2">BIRTHDATE</p>
 
-        <p class="text-darken-4 description-text"><%= @profile.date_of_birth.try(:strftime, "%e %b %Y") %></p>
-        <% end %>
-        <% if @profile == current_user.profile%>
-        <p class="description-profile grey-text text-lighten-2">MY ADDRESS</p>
-        <p class="text-darken-4 description-text">
-          <%= @profile.street_name %> <%= @profile.street_number %>
-        </p>
-        <p class="text-darken-4 description-text">
-          <%= @profile.zipcode %> <%= @profile.city %> <%= @profile.country %>
-        </p>
-        <% end %>
-        <br>
-        <p class="description-profile grey-text text-lighten-2">BIOGRAPHY</p>
-        <p class="text-darken-4 description-text">
-          <%= @profile.bio %>
-        </p>
-        <br>
-        <p class="description-profile grey-text text-lighten-2">INTERESTS</p>
-        <p class="text-darken-4 description-text">
-          <%= @profile.tag_list %>
-        </p>
-        <br>
-        <p class="description-profile grey-text text-lighten-2">KIDS</p>
-        <ul>
-          <% @profile.kids.each do |kid| %>
-          <li class="text-darken-4 description-text"><%= kid.gender.capitalize %> <%= kid.age(kid.date_of_birth) %>
-            <% if @profile == current_user.profile%>
-            <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-floating activator waves-effect waves-light red lighten-1 right hoverable" do %>
-              <i class="material-icons">close</i>
-            <% end %>
-            <% end %>
-          </li>
+          <p class="text-darken-4 description-text"><%= @profile.date_of_birth.try(:strftime, "%e %b %Y") %></p>
           <% end %>
-        </ul>
-        <% if @profile == current_user.profile%>
-        <%= render 'kids/form' %>
-        <% end %>
+          <% if @profile == current_user.profile%>
+          <p class="description-profile grey-text text-lighten-2">MY ADDRESS</p>
+          <p class="text-darken-4 description-text">
+            <%= @profile.street_name %> <%= @profile.street_number %>
+          </p>
+          <p class="text-darken-4 description-text">
+            <%= @profile.zipcode %> <%= @profile.city %> <%= @profile.country %>
+          </p>
+          <% end %>
+          <br>
+          <p class="description-profile grey-text text-lighten-2">BIOGRAPHY</p>
+          <p class="text-darken-4 description-text">
+            <%= @profile.bio %>
+          </p>
+          <br>
+          <p class="description-profile grey-text text-lighten-2">INTERESTS</p>
+          <p class="text-darken-4 description-text">
+            <%= @profile.tag_list %>
+          </p>
+          <br>
+          <p class="description-profile grey-text text-lighten-2">KIDS</p>
+          <% @profile.kids.each do |kid| %>
+          <div class="text-darken-4 description-text">
+            <div class="row">
+              <div class="col s4">
 
-        <% if @profile != current_user.profile%>
-          <%= link_to "Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => @profile.id %>
-        <% end %>
+               <% if kid.gender == "male" %>
+               <%= image_tag 'babyboy.svg', class: 'logo-medium' %>
+               <% elsif kid.gender == "female" %>
+               <%= image_tag 'babygirl.svg', class: 'logo-medium' %>
+               <% else %>
+               <%= image_tag 'intersex.svg', class: 'logo-medium' %>
+               <% end %>
+             </div>
+             <div class="col s4 margintop">
 
-      </div>
+               <%= kid.age(kid.date_of_birth) %>
+             </div>
+             <div class="col s4">
+
+               <div class="btn-flex">
+
+
+                 <% if @profile == current_user.profile%>
+                 <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-red" do %>
+                 <i class="fa fa-times"></i>
+                 <% end %>
+                 <% end %>
+
+                 <div class="btn-small activator waves-effect waves-light red lighten-1 right hoverable"></div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="text-darken-4 description-text">
+
+           <% if @profile.pregnant %>
+           <div class="row">
+            <div class="col s4">
+             <p class="due_date"> <%= image_tag 'pregnant.svg', class: 'logo-medium' %></div>
+               <div class="col s4 margintop">
+                 Due <%= @profile.due_date.try(:strftime, '%b %Y') %></p>
+               </div>
+             </div>
+             <% end %>
+           </div>
+           <% end %>
+
+
+           <% if @profile == current_user.profile%>
+           <%= render 'kids/form' %>
+           <% end %>
+
+           <% if @profile != current_user.profile%>
+           <%= link_to "Message", "#", class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.profile.id, "data-rip" => @profile.id %>
+           <% end %>
+
+         </div>
 
 
 
 
 
-    </div>
+       </div>
