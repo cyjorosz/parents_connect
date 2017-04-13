@@ -1,24 +1,24 @@
 <% content_for :title, "#{@event.description}" %>
 
-<div class="container">
+<div class="container-fluid background-color">
 
-  <h1> <%= @event.description %> </h1>
   <div class="row">
-    <div class="col s6" >
+    <div class="col s12 m6" >
       <div class="padding">
-        <p>Hosted by: <%= link_to profile_path(@host) do %>
-          <%= @event.profile.first_name %> <%= @event.profile.last_name %>
+      <h3><%= @event.description %></h3>
+        <p class="pull-right">Hosted by: <%= link_to profile_path(@host) do %>
+          <%= @event.profile.first_name %>
         </p>
         <% end %>
         <p> When?  <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %> </p>
         <% unless @event.duration.nil? %>
         <p> Duration:
           <% if @event.duration >= 60 %>
-            <p><%= @event.duration / 60 %> hours </p>
+          <p><%= @event.duration / 60 %> hours </p>
           <% else  %>
-            <p> <%= @event.duration %> minutes </p>
+          <p> <%= @event.duration %> minutes </p>
           <% end %>
-        <% end %>
+          <% end %>
         </p>
         <p> Where? </p> <%= @event.street_name %>
         <%= @event.street_number %>
@@ -26,18 +26,10 @@
         <%= @event.zipcode %>
         <%= @event.country %></div>
         <% if @event.profile == current_user.profile %>
-          <%= link_to edit_profile_event_path(@event), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
-          <i class="large material-icons">mode_edit</i>
-          <% end %>
+        <%= link_to edit_profile_event_path(@event), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
+        <i class="large material-icons">mode_edit</i>
         <% end %>
-      </div>
-      <div class="col s6">
-        <div id="map" style="width: 100%; height: 400px;"></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
+        <% end %>
         <% if @event.profile == current_user.profile %>
         <h3>you're the host!</h3>
         <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
@@ -46,11 +38,6 @@
         <% else %>
         <%= render 'events/attendancebutton' %>
         <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
         <h3> Attending </h3>
         <% @attendances.each do |attendance| %>
         <%= link_to profile_path(attendance.profile) do %>
@@ -63,6 +50,11 @@
         </ul>
         <% end %>
         <% end %>
+      </div>
+      <div class="col s12 m6 no-padding">
+        <div class="fixed">
+          <div id="map" style="width: 100%; height: 100vh;"></div>
+        </div>
       </div>
     </div>
   </div>
