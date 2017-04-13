@@ -1,7 +1,5 @@
-<div class="container">
-  <h4>Attend this event!</h4>
-    <%= simple_form_for @attendance do |f| %>
-      <%= f.button :submit, "Attend", class: "btn btn-success" %>
-      <%= f.input_field :event_id, as: :hidden,  value: @event.id %>
-    <% end %>
-</div>
+<h4>Attend this event!</h4>
+<%= simple_form_for @attendance do |f| %>
+  <%= f.button :submit, "Attend", class: "btn btn-success attend" %>
+  <%= f.input_field :event_id, as: :hidden,  value: @event.id %>
+<% end %>
