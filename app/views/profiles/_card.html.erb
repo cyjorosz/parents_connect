@@ -74,19 +74,26 @@
            </div>
          </div>
 
-         <div class="text-darken-4 description-text">
+
+           <% end %>
+
 
            <% if @profile.pregnant %>
-           <div class="row">
-            <div class="col s4">
-             <p class="due_date"> <%= image_tag 'pregnant.svg', class: 'logo-medium' %></div>
-               <div class="col s4 margintop">
-                 Due <%= @profile.due_date.try(:strftime, '%b %Y') %></p>
-               </div>
+         <div class="text-darken-4 description-text">
+            <div class="row">
+              <div class="col s4">
+                <%= image_tag 'pregnant.svg', class: 'logo-medium' %>
+              </div>
+
+              <div class="col s4 margintop">
+                <p>
+                 Due <%= @profile.due_date.try(:strftime, '%b %Y') %>
+                 </p>
+              </div>
              </div>
-             <% end %>
            </div>
-           <% end %>
+
+             <% end %>
 
 
            <% if @profile == current_user.profile%>
@@ -98,9 +105,5 @@
            <% end %>
 
          </div>
-
-
-
-
 
        </div>
