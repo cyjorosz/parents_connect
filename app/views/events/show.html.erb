@@ -12,7 +12,7 @@
         </p>
         <% end %>
         </div>
-        <p> When? </p>
+        <h5> When? </h5>
         <p class="move-right">
         <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %> </p>
         <% unless @event.duration.nil? %>
@@ -24,7 +24,7 @@
           <% end %>
           <% end %>
         </p>
-        <p> Where? </p>
+        <h5> Where? </h5>
         <p class="move-right"><%= @event.street_name %>
         <%= @event.street_number %></p>
         <p class="move-right"><%= @event.city %>
