@@ -14,7 +14,8 @@
         <% unless @event.duration.nil? %>
         <p> Duration:
           <% if @event.duration >= 60 %>
-          <p><%= @event.duration / 60 %> hours </p>
+          
+          <p><%= @event.duration / 60 %> h <%= @event.duration % 60 %> min</p>
           <% else  %>
           <p> <%= @event.duration %> minutes </p>
           <% end %>
