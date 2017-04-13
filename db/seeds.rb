@@ -114,11 +114,11 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Breakfast/picknick with my toddler at the playground - (BYO!) :)",
-  street_name: "Van Tuyll van Serooskerkenweg 140",
+  description: "Breakfast/picknic with my toddler at the playground :)",
+  street_name: "Oude Turfmarkt 129",
   start_date: "2017-04-20",
-  start_time: "10:00:00",
-  zipcode: "1076",
+  start_time: "11:30:00",
+  zipcode: "1012",
   city: "Amsterdam",
   country: "Netherlands",
   )
