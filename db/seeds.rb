@@ -337,7 +337,7 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Picknick with my kids",
+  description: "Picknic with my kids",
   street_name: "Flevopark 13",
   start_date: "2017-04-16",
   start_time: "14:30:00",
@@ -414,7 +414,7 @@ event = Event.create!(
 
 event = Event.create!(
   profile: profile,
-  description: "Picknick! Please bring you on food/drinks :)",
+  description: "Picknic! Please bring you on food/drinks :)",
   start_date: "2017-05-16",
   start_time: "14:45:00",
   duration: 120,
