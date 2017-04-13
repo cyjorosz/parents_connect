@@ -7,9 +7,9 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-      <li> <%= link_to "Messages", events_path, class: "text-black" %>  </li>
       <li> <%= link_to "Profiles", profiles_path, class: "text-black" %></li>
       <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
+      <li> <%= link_to "Messages", events_path, class: "text-black" %>  </li>
       <li>
         <%= link_to profile_path(current_user) do %>
         <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
