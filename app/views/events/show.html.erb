@@ -46,13 +46,12 @@
         <h3> Attending </h3>
         <% @attendances.each do |attendance| %>
         <%= link_to profile_path(attendance.profile) do %>
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <img src="<%= attendance.profile.photo %>" alt="" class="circle">
-            <span class="title"> <%= attendance.profile.first_name %> <%= attendance.profile.last_name %></span>
-            <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
-          </li>
-        </ul>
+
+            <div class="attending-card z-depth-3">
+            <%= attendance.profile.first_name %>
+            <img src="<%= attendance.profile.photo %>" alt="" class="avatar-medbig">
+
+            </div>
         <% end %>
         <% end %>
       </div>

@@ -61,13 +61,14 @@
 
                <div class="btn-flex">
 
-                 <% if @profile == current_user.profile%>
-                  <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-red" do %>
-                      <i class="fa fa-times"></i>
-                   <% end %>
-                 <% end %>
 
-                 <div class="btn-small activator waves-effect waves-light red lighten-1 right hoverable"></div>
+                <% if @profile == current_user.profile%>
+                <%= link_to profile_kid_path(profile_id: kid.profile_id, id: kid.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn-red" do %>
+                      <i class="fa fa-times"></i>
+                    <% end %>
+                    <div class="btn-small activator waves-effect waves-light red lighten-1 right hoverable"></div>
+                <% end %>
+
                </div>
              </div>
            </div>
