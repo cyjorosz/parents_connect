@@ -18,7 +18,7 @@
         <% unless @event.duration.nil? %>
         <p class="move-right"> Duration:
           <% if @event.duration >= 60 %>
-          <p><%= @event.duration / 60 %> h <%= @event.duration % 60 %> min</p>
+          <p class="move-right"><%= @event.duration / 60 %> h <%= @event.duration % 60 %> min</p>
           <% else  %>
           <p class="move-right"> <%= @event.duration %> minutes </p>
           <% end %>
