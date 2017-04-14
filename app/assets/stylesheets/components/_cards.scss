@@ -19,12 +19,17 @@
    -webkit-align-content: flex-end;
    align-content: flex-end;
 }
-
+.attendancename {
+  padding-left:10px;
+}
 .card {
   margin: 15px;
-  width: 500px;
+  width: 300px;
 }
-
+.attendingcard {
+  padding-left: 10px;
+  border-radius: 50%;
+}
 .card-home {
   height: 220px;
 

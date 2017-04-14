@@ -1,0 +1,67 @@
+      <h3>
+      <%= @event.description %>
+      </h3>
+      <div class="pull-right">
+        <%= cl_image_tag @host.photo, class: "avatar-big padding-image z-depth-3", alt: "profile_background" %>
+        <p>
+          Hosted by:
+          <%= link_to profile_path(@host) do %>
+            <%= @event.profile.first_name %>
+          <% end %>
+        </p>
+        </div>
+        <h5>
+          When?
+        </h5>
+        <p class="move-right">
+          <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %>
+        </p>
+        <% unless @event.duration.nil? %>
+          <p class="move-right">
+            Duration:
+          </p>
+          <% if @event.duration >= 60 %>
+            <p>
+              <%= @event.duration / 60 %> h <%= @event.duration % 60 %> min
+            </p>
+          <% else  %>
+            <p class="move-right">
+              <%= @event.duration %> minutes
+            </p>
+          <% end %>
+        <% end %>
+        <h5>
+          Where?
+        </h5>
+        <p class="move-right">
+          <%= @event.street_name %>
+          <%= @event.street_number %>
+        </p>
+        <p class="move-right">
+          <%= @event.city %>
+          <%= @event.zipcode %>
+        </p>
+        <% if @event.profile == current_user.profile %>
+          <%= link_to edit_profile_event_path(@event), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
+            <i class="large material-icons">mode_edit</i>
+          <% end %>
+        <% end %>
+        <% if @event.profile == current_user.profile %>
+          <h3>
+            you're the host!
+          </h3>
+          <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
+        <% elsif @event.profile_attending?(@attendances, current_user.profile.id) %>
+          <%= link_to "Can't go?", attendance_path, class: "btn", method: :delete %>
+        <% else %>
+          <%= render 'events/attendancebutton' %>
+        <% end %>
+        <hr>
+        <h3>
+          Attending
+        </h3>
+        <% @attendances.each do |attendance| %>
+          <%= link_to profile_path(attendance.profile) do %>
+            <img src="<%= attendance.profile.photo %>" alt="" class="avatar-medbig attending-card z-depth-3 hoverable">
+          <% end %>
+        <% end %>

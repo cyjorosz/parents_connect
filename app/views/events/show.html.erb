@@ -1,69 +1,16 @@
 <% content_for :title, "#{@event.description}" %>
 
-<div class="container-fluid background-color">
-
+<div class="container-fluid">
   <div class="row">
     <div class="col s12 m6 vh100">
-      <h3><%= @event.description %></h3>
-      <div class="pull-right">
-        <%= cl_image_tag @host.photo, class: "avatar-big padding-image z-depth-3", alt: "profile_background" %>
-        <p>Hosted by: <%= link_to profile_path(@host) do %>
-          <%= @event.profile.first_name %>
-        </p>
-        <% end %>
-        </div>
-        <h5> When? </h5>
-        <p class="move-right">
-        <%= @event.start_date.try(:strftime, "%e %b %Y") %> at <%= @event.start_time.try(:strftime, "%l:%M %p" ) %> </p>
-        <% unless @event.duration.nil? %>
-        <p class="move-right"> Duration:
-          <% if @event.duration >= 60 %>
-          <p><%= @event.duration / 60 %> h <%= @event.duration % 60 %> min</p>
-          <% else  %>
-          <p class="move-right"> <%= @event.duration %> minutes </p>
-          <% end %>
-          <% end %>
-        </p>
-        <h5> Where? </h5>
-        <p class="move-right"><%= @event.street_name %>
-        <%= @event.street_number %></p>
-        <p class="move-right"><%= @event.city %>
-        <%= @event.zipcode %></p>
-        <% if @event.profile == current_user.profile %>
-        <%= link_to edit_profile_event_path(@event), class: "btn-floating activator waves-effect waves-light green lighten-1 right hoverable" do %>
-        <i class="large material-icons">mode_edit</i>
-        <% end %>
-        <% end %>
-        <% if @event.profile == current_user.profile %>
-        <h3>you're the host!</h3>
-        <%= link_to "Want to cancel the event?", event_path, class: "btn", method: :delete, data: { confirm: "Are you sure?" } %>
-        <% elsif @event.profile_attending?(@attendances, current_user.profile.id) %>
-        <%= link_to "Can't go?", attendance_path, class: "btn", method: :delete %>
-        <% else %>
-        <%= render 'events/attendancebutton' %>
-        <% end %>
-        <hr>
-        <% unless @attendances.empty? %>
-        <h3> Attending </h3>
-        <% end %>
-        <% @attendances.each do |attendance| %>
-        <%= link_to profile_path(attendance.profile) do %>
+      <%= render 'show_info' %>
+    </div>
+    <div class="col s12 m6 no-padding">
+      <%= render 'show_map' %>
 
-            <div class="attending-card z-depth-3">
-            <%= attendance.profile.first_name %>
-            <img src="<%= attendance.profile.photo %>" alt="" class="avatar-medbig">
-
-            </div>
-        <% end %>
-        <% end %>
-      </div>
-      <div class="col s12 m6 no-padding">
-        <div class="fixed">
-          <div id="map" style="width: 100%; height: 100vh;"></div>
-        </div>
-      </div>
     </div>
   </div>
+</div>
 
 
 

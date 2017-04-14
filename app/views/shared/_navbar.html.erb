@@ -11,8 +11,8 @@
       <li> <%= link_to "Events", events_path, class: "text-black" %>  </li>
       <li> <%= link_to "Messages", events_path, class: "text-black" %>  </li>
       <li>
-        <%= link_to profile_path(current_user) do %>
-        <%= cl_image_tag current_user.profile.photo, class: "avatar", alt: "profile_background"  %>
+        <%= link_to profile_path(current_user), class: "avatar-link" do %>
+        <%= cl_image_tag current_user.profile.photo, class: "avatar-nav", alt: "profile_background"  %>
         <% end %>
 
       </li>
