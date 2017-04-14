@@ -5,6 +5,20 @@
   margin-top: 12px;
 }
 
+.avatar-nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+}
+
 .avatar nav ul a {
   padding: 10px;
 }
@@ -17,6 +31,7 @@
 .avatar-medbig {
   width: 70px;
   height: 70px;
+  border-radius:50%;
 }
 .avatar-big {
   width: 100px;
