@@ -43,7 +43,9 @@
         <%= render 'events/attendancebutton' %>
         <% end %>
         <hr>
+        <% unless @attendances.empty? %>
         <h3> Attending </h3>
+        <% end %>
         <% @attendances.each do |attendance| %>
         <%= link_to profile_path(attendance.profile) do %>
 
